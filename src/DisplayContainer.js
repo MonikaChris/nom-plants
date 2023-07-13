@@ -27,7 +27,8 @@ function DisplayContainer() {
     }
   }
 
-  function groupPlants(size) {
+  // Groups plants into rows for display
+  function getPlantRows(size) {
     const plantRows = [];
     
     for (let i = 0; i < plants.length; i += size) {
@@ -37,14 +38,10 @@ function DisplayContainer() {
     return plantRows;
   }
 
-  // {/* {plants.map((plant, idx) => 
-  //       <div idx={idx}>{plant}</div>
-  //     )} */}
-
   return(
     <div className="display-container">
       
-      {groupPlants(5).map((row, idx) =>
+      {getPlantRows(5).map((row, idx) =>
         <PlantRow idx={idx} row={row}></PlantRow>
       )}
 
