@@ -2,12 +2,12 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
-  background-image: url('./images/landscape.jpg');
+  background-image: url('./images/blurLandscape.png');
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* opacity: .8; */
+  opacity: .8;
 }
 
 .display-container {
@@ -23,7 +23,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-color: rgba(199, 159, 210, 0.5);
   border-radius: 20px 20px 0 0;
 }
@@ -59,16 +59,34 @@
 
 .button-row {
   display:flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(145, 246, 241, 0.5);
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-bottom: 2rem;
 }
 
-.week-text {
-
+.add-plant-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin-right: 1rem;
 }
 
-.total-text {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
+.nom-history-button {
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: .5rem;
 }
 
+.chart-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.flower {
+  height: 3.5rem;
+  margin-top: 1rem;
+}
