@@ -1,4 +1,4 @@
-export default function Banner({week}) {
+export default function Banner({week, total}) {
 
   const months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
   const dateParts = week.split('-');
@@ -8,7 +8,18 @@ export default function Banner({week}) {
 
   return (
     <>
-    <div>Week of {date}</div>
+      <div className="week-banner">
+        <button>Previous</button>
+        <div className="week-text">Week of {date}</div>
+        <button>Forward</button>
+      </div>
+      
+      <div className="total-text">Total Plants Nom'd: {total}</div>
+      
+      <div className="button-row">
+        <button>Add Plant</button>
+        <button>Nom History</button>
+      </div>
     </>
   )
 }

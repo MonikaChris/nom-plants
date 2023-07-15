@@ -19,6 +19,15 @@
   border: solid 1px rgb(178, 236, 246);
 }
 
+.week-banner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(199, 159, 210, 0.5);
+  border-radius: 20px 20px 0 0;
+}
+
 .plant-row {
   display: flex;
   justify-content: space-around;
@@ -47,3 +56,19 @@
   background-color: rgb(134, 242, 134);
   border-radius: 20px;
 }
+
+.button-row {
+  display:flex;
+  justify-content: center;
+}
+
+.week-text {
+
+}
+
+.total-text {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+

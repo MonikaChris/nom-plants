@@ -43,7 +43,7 @@ function DisplayContainer() {
 
   return(
     <div className="display-container">
-      <Banner week={week}/>
+      <Banner week={week} total={plants.length}/>
       
       {getPlantRows(rowLength).map((row, idx) =>
         <>
