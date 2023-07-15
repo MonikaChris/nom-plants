@@ -9,6 +9,7 @@ function DisplayContainer() {
   const[user, setUser] = useState('lovebug@veggies.com');
   const[plants, setPlants] = useState([]);
 
+  const rowLength = 5;
 
   useEffect(() => {
     getPlants();
@@ -41,8 +42,8 @@ function DisplayContainer() {
   return(
     <div className="display-container">
       
-      {getPlantRows(5).map((row, idx) =>
-        <PlantRow idx={idx} row={row}></PlantRow>
+      {getPlantRows(rowLength).map((row, idx) =>
+        <PlantRow idx={idx} row={row} rowLength={rowLength}></PlantRow>
       )}
 
     </div>
