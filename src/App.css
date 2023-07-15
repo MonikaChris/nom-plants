@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   opacity: .8;
+  font-family: 'Nunito', sans-serif;
 }
 
 .display-container {
@@ -26,6 +27,7 @@
   justify-content: center;
   background-color: rgba(199, 159, 210, 0.5);
   border-radius: 20px 20px 0 0;
+  font-weight: 500;
 }
 
 .plant-row {
@@ -42,8 +44,8 @@
 }
 
 .progress-bar {
-  width: 95%;
-  height: 2rem;
+  width: 90%;
+  height: 1rem;
   border: 2px solid rgb(3, 64, 3);
   border-radius: 20px;
   margin-left: auto;
@@ -52,7 +54,7 @@
 
 .progress-bar-fill {
   width: 20%;
-  height: 2rem;
+  height: 1rem;
   background-color: rgb(134, 242, 134);
   border-radius: 20px;
 }
