@@ -4,6 +4,7 @@ import getMonday from './dateFormatter2';
 import axios from 'axios';
 import PlantRow from './PlantRow';
 import ProgressBar from './ProgressBar';
+import Banner from './Banner';
 
 function DisplayContainer() {
   const[week, setWeek] = useState(getMonday(new Date()));
@@ -42,11 +43,12 @@ function DisplayContainer() {
 
   return(
     <div className="display-container">
+      <Banner week={week}/>
       
       {getPlantRows(rowLength).map((row, idx) =>
         <>
-          <PlantRow idx={idx} row={row} rowLength={rowLength}></PlantRow>
-          <ProgressBar row={row} rowLength={rowLength}></ProgressBar>
+          <PlantRow idx={idx} row={row} rowLength={rowLength}/>
+          <ProgressBar row={row} rowLength={rowLength}/>
         </>
       )}
 
