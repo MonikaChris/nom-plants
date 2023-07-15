@@ -31,3 +31,19 @@
   background-color: rgb(73, 41, 2);
   border: 1px solid rgba(85, 43, 2, 0.873);
 }
+
+.progress-bar {
+  width: 95%;
+  height: 2rem;
+  border: 2px solid rgb(3, 64, 3);
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progress-bar-fill {
+  width: 20%;
+  height: 2rem;
+  background-color: rgb(134, 242, 134);
+  border-radius: 20px;
+}
