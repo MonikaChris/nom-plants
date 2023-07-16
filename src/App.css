@@ -28,11 +28,13 @@
   background-color: rgba(199, 159, 210, 0.5);
   border-radius: 20px 20px 0 0;
   font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .plant-row {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .hole {
@@ -77,6 +79,13 @@
   margin-right: 1rem;
 }
 
+.total-text {
+  color: rgb(72, 162, 114);
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 0 rgb(103, 243, 182);
+}
+
 .nom-history-button {
   height: 2.5rem;
   width: 2.5rem;
@@ -91,4 +100,72 @@
 .flower {
   height: 3.5rem;
   margin-top: 1rem;
+}
+
+.back-button, .forward-button {
+  position: relative;
+	background: #36b7df;
+	border: 1px solid #69d1f1;
+  height: 2rem;
+  width: 2rem;
+}
+
+.back-button {
+  margin-right: 1rem;
+}
+
+.forward-button {
+  margin-left: 1rem;
+}
+
+.back-button:after, 
+.back-button:before, 
+.forward-button:before,
+.forward-button:after {
+	/* right: 100%; */
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+}
+
+.back-button:after, 
+.forward-button:after {
+	border-color: rgba(136, 183, 213, 0);
+	/* border-right-color: #36b7df; */
+  border-width: .9rem;
+	margin-top: -.9rem;
+	
+}
+
+.back-button:after {
+  right: 100%;
+  border-right-color: #36b7df;
+  
+}
+
+.forward-button:after{
+  left: 100%;
+  border-left-color: #36b7df;
+}
+
+.back-button:before,
+.forward-button:before {
+	border-color: rgba(194, 225, 245, 0);
+	/* border-right-color: #69d1f1; */
+  border-width: 1rem;
+	margin-top: -1rem;
+	
+}
+
+.back-button:before {
+  right: 100%;
+  border-right-color: #69d1f1;
+}
+
+.forward-button:before {
+  left: 100%;
+  border-left-color: #69d1f1;
 }

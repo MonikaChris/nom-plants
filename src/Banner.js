@@ -9,9 +9,9 @@ export default function Banner({week, total}) {
   return (
     <>
       <div className="week-banner">
-        <button className='previous-button'>Previous</button>
+        <button className='back-button'></button>
         <div className="week-text">Week of {date}</div>
-        <button className='forward-button'>Forward</button>
+        <button className='forward-button'></button>
       </div>
       
       
