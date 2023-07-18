@@ -30,6 +30,28 @@ function DisplayContainer() {
     }
   }
 
+  async function addPlant(plant) {
+      const config = {
+        method: 'post',
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/plant',
+        data: {
+          "date": `${week}`,
+          "plant": `${plant}`,
+          "email": `${user}`
+          }
+        }
+         console.log(`config: ${config}`);
+
+        try {
+          const res = await axios(config);
+          console.log(`post res: ${res}`);
+        } catch(error) {
+          this.console.error(error);
+        }
+  }
+  
+
   // Groups plants into rows for display
   function getPlantRows(size) {
     const plantRows = [];
@@ -43,7 +65,7 @@ function DisplayContainer() {
 
   return(
     <div className="display-container">
-      <Banner week={week} total={plants.length}/>
+      <Banner week={week} total={plants.length} addPlant={addPlant}/>
       
       {getPlantRows(rowLength).map((row, idx) =>
         <>

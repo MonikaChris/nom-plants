@@ -1,4 +1,5 @@
 export default function Banner({week, total}) {
+  
 
   const months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
   const dateParts = week.split('-');
