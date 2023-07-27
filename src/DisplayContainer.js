@@ -5,11 +5,13 @@ import axios from 'axios';
 import PlantRow from './PlantRow';
 import ProgressBar from './ProgressBar';
 import Banner from './Banner';
+import PlantFormModal from './PlantFormModal';
 
 function DisplayContainer() {
   const[week, setWeek] = useState(getMonday(new Date()));
   const[user, setUser] = useState('lovebug@veggies.com');
   const[plants, setPlants] = useState([]);
+  const [showPlantModal, setPlantModal] = useState(false);
 
   const rowLength = 5;
 
@@ -65,7 +67,9 @@ function DisplayContainer() {
 
   return(
     <div className="display-container">
-      <Banner week={week} total={plants.length} addPlant={addPlant}/>
+      <Banner week={week} total={plants.length} addPlant={addPlant} setPlantModal={setPlantModal}/>
+
+      {showPlantModal && <PlantFormModal setPlantModal={setPlantModal}/>}
       
       {getPlantRows(rowLength).map((row, idx) =>
         <>
