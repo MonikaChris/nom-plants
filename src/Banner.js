@@ -1,6 +1,12 @@
+import { useState } from 'react';
+import PlantFormModal from './PlantFormModal';
+
 export default function Banner({week, total}) {
   
+  const [showModal, setShowModal] = useState('hide');
 
+  const showPlantForm = () =>  setShowModal("show");
+  
   const months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
   const dateParts = week.split('-');
   const month = months[Number(dateParts[0]) - 1];
@@ -20,10 +26,11 @@ export default function Banner({week, total}) {
       <div className="button-row">
         <div className="total-text">Plants Nom'd: {total}</div>
         <div>
-        <button className="add-plant-button">+</button>
+        <button onClick={showPlantForm} className="add-plant-button">+</button>
         <button className="nom-history-button">
           <img className="chart-icon" src={require('./images/bar-chart.png')} alt="Nom History"/>
         </button>
+        <PlantFormModal showModal={showModal}/>
         </div>
       </div>
     </>
