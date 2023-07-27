@@ -12,6 +12,7 @@ export default function PlantFormModal({setPlantModal}) {
 
   return (
     <div className="plant-form-modal" >
+      <h2>Nom'd a Plant?</h2>
       <form className="plant-form" onSubmit={handleSubmit}>
         <div>
         <label htmlFor="plant-type">Plant:</label>
@@ -24,8 +25,8 @@ export default function PlantFormModal({setPlantModal}) {
         </div>
 
         <div>
-        <button type="submit">Add Plant</button>
-        <button onClick={() => setPlantModal(false)}>Cancel</button>
+        <button className="plant-form-button" type="submit">Add Plant</button>
+        <button className="plant-form-button" onClick={() => setPlantModal(false)}>Cancel</button>
         </div>
       </form>
     </div>
