@@ -30,7 +30,7 @@ export default function Banner({week, total}) {
         </button>
         </div>        
       </div>
-      {showPlantModal && <PlantFormModal/>}
+      {showPlantModal && <PlantFormModal setPlantModal={setPlantModal}/>}
     </>
   )
 }
