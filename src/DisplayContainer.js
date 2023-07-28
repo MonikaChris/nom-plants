@@ -13,6 +13,7 @@ function DisplayContainer() {
   const[plants, setPlants] = useState([]);
   const [showPlantModal, setPlantModal] = useState(false);
 
+  // Number of plants per row
   const rowLength = 6;
  
   useEffect(() => {

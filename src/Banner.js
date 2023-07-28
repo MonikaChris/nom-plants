@@ -9,9 +9,9 @@ export default function Banner({week, total, setPlantModal}) {
   return (
     <>
       <div className="week-banner">
-        <button className='back-button'></button>
+        <button className='back-button'/>
         <div className="week-text">Week of {date}</div>
-        <button className='forward-button'></button>
+        <button className='forward-button'/>
       </div>
       
       <div className="button-row">
@@ -22,9 +22,7 @@ export default function Banner({week, total, setPlantModal}) {
           <img className="chart-icon" src={require('./images/bar-chart.png')} alt="Nom History"/>
         </button>
         </div>        
-      </div>
-
-      
+      </div> 
     </>
   )
 }

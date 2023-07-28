@@ -105,66 +105,30 @@
   margin-top: 1rem;
 }
 
-.back-button, .forward-button {
-  position: relative;
-	background: rgb(107, 201, 202);
-	border: 1px solid rgb(123, 123, 239, 0.5);
-  height: 2rem;
-  width: 2rem;
-}
-
 .back-button {
-  margin-right: 1.5rem;
-  cursor: pointer;
+  background-image: url(./images/leftLeaf.png);
+  margin-right: 1rem;
 }
 
 .forward-button {
-  margin-left: 1.5rem;
+  background-image: url(./images/rightLeaf.png);
+  margin-left: 1rem;
+}
+
+.back-button, .forward-button {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  height: 2rem;
+  width: 3.5rem;
+  background-size: cover;
+  background-position: center;
+  margin-right: 1rem;
 }
 
-.back-button:after, 
-.back-button:before, 
-.forward-button:before,
-.forward-button:after {
-	top: 50%;
-	border: solid transparent;
-	content: "";
-	height: 0;
-	width: 0;
-	position: absolute;
-}
-
-.back-button:after, 
-.forward-button:after {
-  border-width: .9rem;
-	margin-top: -.9rem;
-}
-
-.back-button:after {
-  right: 100%;
-  border-right-color: rgb(107, 201, 202);
-}
-
-.forward-button:after{
-  left: 100%;
-  border-left-color: rgb(107, 201, 202);
-}
-
-.back-button:before,
-.forward-button:before {
-  border-width: 1rem;
-	margin-top: -1rem;
-}
-
-.back-button:before {
-  right: 100%;
-  border-right-color: rgb(123, 123, 239, 0.7);
-}
-
-.forward-button:before {
-  left: 100%;
-  border-left-color: rgb(123, 123, 239, 0.7);
+.nav-button-icon {
+  height: 100%;
+  width: 100%;
 }
 
 .plant-form-modal {
