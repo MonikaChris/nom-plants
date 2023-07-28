@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
-export default function PlantFormModal({setPlantModal}) {
+export default function PlantFormModal({setPlantModal, addPlant}) {
   const [plantType, setPlantType] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();    
+    addPlant(plantType);
     console.log(plantType);
+    
+    //Hide modal and reset state
     setPlantModal(false);
     setPlantType('');
   }
