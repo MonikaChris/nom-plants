@@ -26,6 +26,7 @@
   padding-bottom: 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: rgba(199, 159, 210, 0.5);
   border-radius: 20px 20px 0 0;
   font-weight: 500;
