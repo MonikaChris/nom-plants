@@ -13,7 +13,7 @@ function DisplayContainer() {
   const[plants, setPlants] = useState([]);
   const [showPlantModal, setPlantModal] = useState(false);
 
-  const rowLength = 5;
+  const rowLength = 6;
  
   useEffect(() => {
     getPlants();
@@ -77,13 +77,13 @@ function DisplayContainer() {
         week={week}
         />
 
-      {showPlantModal && 
+      {showPlantModal ? 
       <PlantFormModal 
         setPlantModal={setPlantModal}
         addPlant={addPlant}
-      />}
-      
-      {getPlantRows(rowLength).map((row, idx) =>
+      />
+      :
+      getPlantRows(rowLength).map((row, idx) =>
         <>
           <PlantRow idx={idx} row={row} rowLength={rowLength}/>
           <ProgressBar row={row} rowLength={rowLength}/>
