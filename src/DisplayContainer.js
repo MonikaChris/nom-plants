@@ -6,12 +6,15 @@ import PlantRow from './PlantRow';
 import ProgressBar from './ProgressBar';
 import Banner from './Banner';
 import PlantFormModal from './PlantFormModal';
+import EditPlantModal from './EditPlantModal';
 
 function DisplayContainer() {
   const[week, setWeek] = useState(getMonday(new Date()));
   const[user, setUser] = useState('lovebug@veggies.com');
   const[plants, setPlants] = useState([]);
   const [showPlantModal, setPlantModal] = useState(false);
+  const [showEditPlantModal, setEditPlantModal] = useState(false);
+  const [plantToEdit, setPlantToEdit] = useState(null);
 
   // Number of plants per row
   const rowLength = 10;
@@ -78,16 +81,31 @@ function DisplayContainer() {
         week={week}
         />
 
+      {/* Conditionally render either add plant modal, edit/delete plant modal, or garden */}
+      
       {showPlantModal ? 
       <PlantFormModal 
         setPlantModal={setPlantModal}
         addPlant={addPlant}
       />
       :
+      showEditPlantModal ?
+      <EditPlantModal
+        plantToEdit={plantToEdit}
+        setEditPlantModal={setEditPlantModal}
+      />
+      :
       getPlantRows(rowLength).map((row, idx) =>
         <>
-          <PlantRow idx={idx} row={row} rowLength={rowLength}/>
-          <ProgressBar row={row} rowLength={rowLength}/>
+          <PlantRow 
+            idx={idx}
+            row={row}
+            rowLength={rowLength}
+            setEditPlantModal={setEditPlantModal}
+          />
+          <ProgressBar 
+            row={row} 
+            rowLength={rowLength}/>
         </>
       )}
 
