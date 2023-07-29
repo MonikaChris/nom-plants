@@ -1,7 +1,7 @@
 import Flower from './Flower';
 import Seedbed from './Seedbed';
 
-export default function PlantRow({ row, rowLength, setEditPlantModal }) {
+export default function PlantRow({ row, rowLength, setEditPlantModal, setPlantToEdit }) {
   let emptySpots = new Array(rowLength - row.length);
   emptySpots.fill(0);
   console.log(`emptySpots: ${typeof emptySpots}`);
@@ -12,7 +12,8 @@ export default function PlantRow({ row, rowLength, setEditPlantModal }) {
       <Flower 
         plant={plant} 
         idx={idx}
-        setEditPlantModal={setEditPlantModal}  
+        setEditPlantModal={setEditPlantModal}
+        setPlantToEdit={setPlantToEdit}  
       />
       )}
 

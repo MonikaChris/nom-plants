@@ -1,5 +1,6 @@
-export default function Flower({plant, setEditPlantModal }) {
+export default function Flower({plant, setEditPlantModal, setPlantToEdit }) {
   const handleClick = () => {
+    setPlantToEdit(plant)
     setEditPlantModal(true);
   }
   

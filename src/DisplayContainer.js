@@ -102,6 +102,7 @@ function DisplayContainer() {
             row={row}
             rowLength={rowLength}
             setEditPlantModal={setEditPlantModal}
+            setPlantToEdit={setPlantToEdit}
           />
           <ProgressBar 
             row={row} 

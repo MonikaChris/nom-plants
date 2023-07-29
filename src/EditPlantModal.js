@@ -10,12 +10,12 @@ export default function EditPlantModal({ plantToEdit, setEditPlantModal }) {
         <DeletePlantModal
           setDeletePlantModal={setDeletePlantModal}
           setEditPlantModal={setEditPlantModal}
-          plant={plantToEdit}
+          plantToEdit={plantToEdit}
         />
       :
         <EditPlantForm
           setDeletePlantModal={setDeletePlantModal}
-          plant={plantToEdit}
+          plantToEdit={plantToEdit}
           setEditPlantModal={setEditPlantModal}
         />  
     }
