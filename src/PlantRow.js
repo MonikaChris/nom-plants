@@ -1,5 +1,5 @@
 import Flower from './Flower';
-import Hole from './Hole';
+import Seedbed from './Seedbed';
 
 export default function PlantRow({ row, rowLength }) {
   let emptySpots = new Array(rowLength - row.length);
@@ -13,7 +13,7 @@ export default function PlantRow({ row, rowLength }) {
       )}
 
     {emptySpots.map((hole, idx) => 
-    <Hole idx={idx}/>)}
+    <Seedbed idx={idx}/>)}
     </div>
 
   )
