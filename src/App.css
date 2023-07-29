@@ -135,13 +135,21 @@
   background-color: rgb(160, 243, 198);
   border: solid 2px rgb(127, 240, 186);
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(8, 85, 8);
+}
+
+.plant-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  color: rgb(8, 85, 8);
+  height: 70%;
+}
+
+#add-plant-text {
+  margin-top: 2rem;
 }
 
 #plant-type {
