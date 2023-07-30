@@ -11,13 +11,19 @@ export default function EditPlantForm({setDeletePlantModal, setEditPlantModal, o
   }
   
   return (
-    <form>
+    <form className="update-plant-form">
       <h1>Update or Delete Plant?</h1>
-      <label id="edit-plant">Plant:</label>
-      <input onChange={(e) => setInput(e.target.value)} id="edit-plant" type="text" value={input}></input>
-      <button onClick={() => setDeletePlantModal(true)}>Delete</button>
-      <button onClick={handleSave}>Save</button>
-      <button onClick={() => setEditPlantModal(false)}>Cancel</button>
+      
+      <div>
+        <label id="edit-plant">Plant:</label>
+        <input onChange={(e) => setInput(e.target.value)} id="edit-plant" type="text" value={input}></input>
+      </div>
+      
+      <div>
+        <button onClick={() => setDeletePlantModal(true)}>Delete</button>
+        <button onClick={handleSave}>Save</button>
+        <button onClick={() => setEditPlantModal(false)}>Cancel</button>
+      </div>
     </form>
   )
 }

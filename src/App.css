@@ -196,3 +196,10 @@
   margin-top: 1rem;
   cursor: pointer;
 }
+
+.update-plant-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
