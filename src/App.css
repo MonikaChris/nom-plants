@@ -197,9 +197,43 @@
   cursor: pointer;
 }
 
+.edit-plant-modal {
+  height: 100%;
+  width: 100%;
+}
+
 .update-plant-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  background-color: rgba(138, 212, 234);
+  border: solid 2px rgb(105, 175, 245);
+  height: 40%;
+  width: 40%;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-button {
+  margin: 1rem;
+  height: 2rem;
+  width: 4rem;
+  border-radius: 3px;
+}
+
+.save-button {
+  background-color: rgb(29, 189, 77);
+  border: solid 1px green;
+}
+
+.delete-button {
+  background-color: rgba(166, 9, 9, 0.5);
+  border: solid 1px red;
+}
+
+.cancel-button {
+  background-color: rgba(229, 229, 63, 0.5);
+  border: solid 1px yellow;
 }

@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function EditPlantModal({ oldPlant, setEditPlantModal, updatePlant }) {
   const [showDeletePlantModal, setDeletePlantModal] = useState(false);
   return (
-    <div>
+    <div className="edit-plant-modal">
       { showDeletePlantModal ?
         <DeletePlantModal
           setDeletePlantModal={setDeletePlantModal}

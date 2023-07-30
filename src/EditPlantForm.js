@@ -20,9 +20,9 @@ export default function EditPlantForm({setDeletePlantModal, setEditPlantModal, o
       </div>
       
       <div>
-        <button onClick={() => setDeletePlantModal(true)}>Delete</button>
-        <button onClick={handleSave}>Save</button>
-        <button onClick={() => setEditPlantModal(false)}>Cancel</button>
+        <button className="save-button modal-button" onClick={handleSave}>Save</button>
+        <button className="delete-button modal-button" onClick={() => setDeletePlantModal(true)}>Delete</button>
+        <button className="cancel-button modal-button" onClick={() => setEditPlantModal(false)}>Cancel</button>
       </div>
     </form>
   )
