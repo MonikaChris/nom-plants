@@ -1,19 +1,18 @@
 import Flower from './Flower';
 import Seedbed from './Seedbed';
 
-export default function PlantRow({ row, rowLength, setEditPlantModal, setPlantToEdit }) {
+export default function PlantRow({ row, rowLength, setEditPlantModal, setOldPlant }) {
   let emptySpots = new Array(rowLength - row.length);
   emptySpots.fill(0);
-  console.log(`emptySpots: ${typeof emptySpots}`);
 
   return(
     <div className="plant-row">
     {row.map((plant, idx) => 
       <Flower 
-        plant={plant} 
+        oldPlant={plant} 
         idx={idx}
         setEditPlantModal={setEditPlantModal}
-        setPlantToEdit={setPlantToEdit}  
+        setOldPlant={setOldPlant}  
       />
       )}
 

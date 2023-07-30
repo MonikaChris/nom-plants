@@ -1,70 +1,82 @@
-import './App.css';
-import { useState, useEffect } from 'react';
-import getMonday from './dateFormatter2';
-import axios from 'axios';
-import PlantRow from './PlantRow';
-import ProgressBar from './ProgressBar';
-import Banner from './Banner';
-import PlantFormModal from './PlantFormModal';
-import EditPlantModal from './EditPlantModal';
+import "./App.css";
+import { useState, useEffect } from "react";
+import getMonday from "./dateFormatter2";
+import axios from "axios";
+import PlantRow from "./PlantRow";
+import ProgressBar from "./ProgressBar";
+import Banner from "./Banner";
+import PlantFormModal from "./PlantFormModal";
+import EditPlantModal from "./EditPlantModal";
 
 function DisplayContainer() {
-  const[week, setWeek] = useState(getMonday(new Date()));
-  const[user, setUser] = useState('lovebug@veggies.com');
-  const[plants, setPlants] = useState([]);
+  const [week, setWeek] = useState(getMonday(new Date()));
+  const [user, setUser] = useState("lovebug@veggies.com");
+  const [plants, setPlants] = useState([]);
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
-  const [plantToEdit, setPlantToEdit] = useState(null);
+  const [oldPlant, setOldPlant] = useState("");
 
   // Number of plants per row
   const rowLength = 10;
- 
+
   useEffect(() => {
     getPlants();
   }, []);
-
 
   async function getPlants() {
     try {
       const url = `${process.env.REACT_APP_SERVER}/week?date=${week}`;
       const res = await axios.get(url);
-      console.log(url);
-      console.log(`res.data: ${JSON.stringify(res.data)}`);
       setPlants(res.data[0].plants);
-    } catch(error){
+    } catch (error) {
       console.log(error);
     }
   }
 
   async function addPlant(plant) {
-    console.log(`new plant: ${plant}`);
     const config = {
-      method: 'post',
+      method: "post",
       baseURL: process.env.REACT_APP_SERVER,
-      url: '/plant',
+      url: "/plant",
       data: {
-        "date": week,
-        "plants": plant,
-        "email": user
-        }
-    }
-    
-    console.log(`config: ${config}`);
+        date: week,
+        plants: plant,
+        email: user,
+      },
+    };
 
     try {
       const res = await axios(config);
-      console.log(`post res: ${res}`);
       getPlants();
-    } catch(error) {
+    } catch (error) {
       this.console.error(error);
     }
   }
-  
+
+  async function updatePlant(newPlant) {
+    console.log(`updatePlant newPlant: ${newPlant}`);
+    const config = {
+      method: "post",
+      baseURL: process.env.REACT_APP_SERVER,
+      url: "/update_plants",
+      data: {
+        date: week,
+        oldPlant: oldPlant,
+        newPlant: newPlant,
+      },
+    };
+    try {
+      const res = await axios(config);
+      getPlants();
+    } catch (error) {
+      this.console.error(error);
+    }
+  }
 
   // Groups plants into rows for display
   function getPlantRows(size) {
     const plantRows = [];
-    
+
     for (let i = 0; i < plants.length; i += size) {
       plantRows.push(plants.slice(i, i + size));
     }
@@ -72,46 +84,41 @@ function DisplayContainer() {
     return plantRows;
   }
 
-  return(
+  return (
     <div className="display-container">
-      <Banner 
-        total={plants.length} 
-        addPlant={addPlant} 
+      <Banner
+        total={plants.length}
+        addPlant={addPlant}
         setPlantModal={setPlantModal}
         week={week}
-        />
+      />
 
       {/* Conditionally render either add plant modal, edit/delete plant modal, or garden */}
-      
-      {showPlantModal ? 
-      <PlantFormModal 
-        setPlantModal={setPlantModal}
-        addPlant={addPlant}
-      />
-      :
-      showEditPlantModal ?
-      <EditPlantModal
-        plantToEdit={plantToEdit}
-        setEditPlantModal={setEditPlantModal}
-      />
-      :
-      getPlantRows(rowLength).map((row, idx) =>
-        <>
-          <PlantRow 
-            idx={idx}
-            row={row}
-            rowLength={rowLength}
-            setEditPlantModal={setEditPlantModal}
-            setPlantToEdit={setPlantToEdit}
-          />
-          <ProgressBar 
-            row={row} 
-            rowLength={rowLength}/>
-        </>
-      )}
 
+      {showPlantModal ? (
+        <PlantFormModal setPlantModal={setPlantModal} addPlant={addPlant} />
+      ) : showEditPlantModal ? (
+        <EditPlantModal
+          oldPlant={oldPlant}
+          setEditPlantModal={setEditPlantModal}
+          updatePlant={updatePlant}
+        />
+      ) : (
+        getPlantRows(rowLength).map((row, idx) => (
+          <>
+            <PlantRow
+              idx={idx}
+              row={row}
+              rowLength={rowLength}
+              setEditPlantModal={setEditPlantModal}
+              setOldPlant={setOldPlant}
+            />
+            <ProgressBar row={row} rowLength={rowLength} />
+          </>
+        ))
+      )}
     </div>
-  )
+  );
 }
 
 export default DisplayContainer;

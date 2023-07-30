@@ -6,7 +6,5 @@ export default function getMonday(date) {
   const month = newDate.getMonth() + 1;
   const day = newDate.getDate();
 
-  console.log(month + '-' + day + '-' + year);
-
   return month + '-' + day + '-' + year;
 }

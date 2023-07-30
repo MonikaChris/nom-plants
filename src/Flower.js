@@ -1,6 +1,6 @@
-export default function Flower({plant, setEditPlantModal, setPlantToEdit }) {
+export default function Flower({oldPlant, setEditPlantModal, setOldPlant }) {
   const handleClick = () => {
-    setPlantToEdit(plant)
+    setOldPlant(oldPlant);
     setEditPlantModal(true);
   }
   
@@ -8,7 +8,7 @@ export default function Flower({plant, setEditPlantModal, setPlantToEdit }) {
   return (
     <div onClick={handleClick} className='flower-container'>
       <img className='flower' src={require('./images/tulip.png')} alt="Flower" />
-      <div className='flower-text'>{plant}</div>
+      <div className='flower-text'>{oldPlant}</div>
     </div>
   )
 }
