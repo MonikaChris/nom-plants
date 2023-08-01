@@ -7,10 +7,13 @@ export default function DeletePlantModal({setDeletePlantModal, setEditPlantModal
   }
   
   return (
-    <div>
-      <h1>Are you sure you want to delete {oldPlant}?</h1>
-      <button onClick={handleClick}>Yes</button>
-      <button onClick={() => setDeletePlantModal(false)}>No</button>
+    <div className="delete-plant-modal">
+      <h2>Are you sure you want to delete {oldPlant}?</h2>
+
+      <div>
+        <button className="modal-button yes-button" onClick={handleClick}>Yes</button>
+        <button className="modal-button no-button" onClick={() => setDeletePlantModal(false)}>No</button>
+      </div>
     </div>
   )
 }
