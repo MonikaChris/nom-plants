@@ -19,19 +19,18 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   border: solid 1px rgb(178, 236, 246);
   overflow: auto;
-  
 }
 
 .week-banner {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1%;
+  padding-bottom: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(199, 159, 210, 0.5);
   border-radius: 20px 20px 0 0;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.5vw;
 }
 
 .plant-row {
@@ -39,12 +38,12 @@
   justify-content: space-around;
   align-items: center;
   height: 20%;
-  font-size: .8rem;
+  font-size: 1vw;
 }
 
 .hole {
-  width: 1rem;
-  height: 1rem;
+  width: 1vw;
+  height: 1vw;
   border-radius: 50%;
   background-color: rgb(73, 41, 2);
   border: 1px solid rgba(85, 43, 2, 0.873);
@@ -52,7 +51,7 @@
 
 .progress-bar {
   width: 95%;
-  height: 1rem;
+  height: 1vw;
   border: 2px solid rgb(3, 64, 3);
   border-radius: 20px;
   margin-left: auto;
@@ -61,7 +60,7 @@
 
 .progress-bar-fill {
   width: 20%;
-  height: 1rem;
+  height: 1vw;
   background-color: rgb(134, 242, 134);
   border-radius: 20px;
 }
@@ -71,16 +70,16 @@
   justify-content: space-around;
   align-items: center;
   background-color: rgb(145, 246, 241, 0.5);
-  padding-top: 2px;
-  padding-bottom: 2px;
-  margin-bottom: 1rem;
+  padding-top: .4vw;
+  padding-bottom: .4vw;
+  margin-bottom: 1vw;
 }
 
 .add-plant-button {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 2.2vw;
   margin-right: 1rem;
   cursor: pointer;
 }
@@ -88,14 +87,14 @@
 .total-text {
   color: rgb(72, 162, 114);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.5vw;
   text-shadow: 1px 1px 0 rgb(103, 243, 182);
 }
 
 .nom-history-button {
   height: 2.5rem;
   width: 2.5rem;
-  font-size: .5rem;
+  font-size: 1vw;
   cursor: pointer;
 }
 
@@ -194,7 +193,7 @@
 .flower {
   height: 70%;
   width: 80%;
-  margin-top: 1rem;
+  margin-top: 10%;
   cursor: pointer;
 }
 
