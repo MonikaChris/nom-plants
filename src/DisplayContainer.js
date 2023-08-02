@@ -25,9 +25,10 @@ function DisplayContainer() {
 
   async function getPlants() {
     try {
-      const url = `${process.env.REACT_APP_SERVER}/week?date=${week}`;
+      const url = `${process.env.REACT_APP_SERVER}/api/weeks/${week}`;
+      console.log(`url: ${url}`);
       const res = await axios.get(url);
-      setPlants(res.data[0].plants);
+      setPlants(res.data.plants);
     } catch (error) {
       console.log(error);
     }
