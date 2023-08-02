@@ -38,10 +38,8 @@ function DisplayContainer() {
     const config = {
       method: "post",
       baseURL: process.env.REACT_APP_SERVER,
-      url: "/plant",
+      url: `/api/weeks/${week}/plants/${plant}`,
       data: {
-        date: week,
-        plants: plant,
         email: user,
       },
     };
