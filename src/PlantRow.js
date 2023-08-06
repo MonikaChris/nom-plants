@@ -2,7 +2,14 @@ import Flower from './Flower';
 import Seedbed from './Seedbed';
 
 export default function PlantRow({ row, gardenRowLength, setEditPlantModal, setOldPlant }) {
-  //Split row into flowers and seedbeds
+  // Fill in any partial row
+  if (row.length < gardenRowLength) {
+    for(let i = row.length; i < gardenRowLength; i++) {
+      row.push(0);
+    }
+  }
+  
+  // Split row into flowers and seedbeds
   let firstSeedIndex = row.findIndex(elem => elem === 0);
   firstSeedIndex = firstSeedIndex === -1 ? gardenRowLength : firstSeedIndex;
   const flowerArray = row.slice(0, firstSeedIndex);

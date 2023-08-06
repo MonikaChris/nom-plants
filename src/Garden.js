@@ -27,6 +27,8 @@ export default function Garden({plants, gardenStartingSize, gardenRowLength, set
     for(let i = 0; i < gardenArray.length; i+= gardenRowLength) {
       plantRows.push(gardenArray.slice(i, i+gardenRowLength));
     }
+
+        
     return plantRows;
   }
   
