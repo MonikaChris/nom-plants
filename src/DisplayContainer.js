@@ -13,7 +13,7 @@ function DisplayContainer() {
   const [plants, setPlants] = useState([]);
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
-  const [oldPlant, setOldPlant] = useState("");
+  const [plantToEdit, setPlantToEdit] = useState("");
 
   useEffect(() => {
     getPlants();
@@ -25,12 +25,9 @@ function DisplayContainer() {
   const gardenRowLength = 10;
 
   async function getPlants() {
-    console.log('ran');
     try {
       const url = `${process.env.REACT_APP_SERVER}/api/weeks/${week}`;
-      console.log(`url: ${url}`);
       const res = await axios.get(url);
-      console.log(`res: ${res.data.plants}`);
       setPlants(res.data.plants);
     } catch (error) {
       console.log(error);
@@ -59,7 +56,7 @@ function DisplayContainer() {
     const config = {
       method: "put",
       baseURL: process.env.REACT_APP_SERVER,
-      url: `/api/weeks/${week}/plants/${oldPlant}`,
+      url: `/api/weeks/${week}/plants/${plantToEdit}`,
       data: {
         newPlant: newPlant,
       },
@@ -73,8 +70,6 @@ function DisplayContainer() {
     }
   }
 
-  
-  console.log(`plants: ${plants}`);
   return (
     <div className="display-container">
       <Banner
@@ -90,7 +85,7 @@ function DisplayContainer() {
         <PlantFormModal setPlantModal={setPlantModal} addPlant={addPlant} />
       ) : showEditPlantModal ? (
         <EditPlantModal
-          oldPlant={oldPlant}
+          plantToEdit={plantToEdit}
           setEditPlantModal={setEditPlantModal}
           updatePlant={updatePlant}
         />
@@ -100,7 +95,7 @@ function DisplayContainer() {
             gardenStartingSize={gardenStartingSize} 
             gardenRowLength={gardenRowLength}
             setEditPlantModal={setEditPlantModal}
-            setOldPlant={setOldPlant}
+            setPlantToEdit={setPlantToEdit}
           />
       )}
     </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export default function EditPlantForm({setDeletePlantModal, setEditPlantModal, oldPlant, updatePlant}) {
-  const [input, setInput] = useState(oldPlant);
+export default function EditPlantForm({setDeletePlantModal, setEditPlantModal, plantToEdit, updatePlant}) {
+  const [input, setInput] = useState(plantToEdit);
   
   const handleSave = (e) => {
     e.preventDefault();

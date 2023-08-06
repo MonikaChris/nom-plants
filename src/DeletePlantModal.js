@@ -1,4 +1,4 @@
-export default function DeletePlantModal({setDeletePlantModal, setEditPlantModal, oldPlant, updatePlant }) {
+export default function DeletePlantModal({setDeletePlantModal, setEditPlantModal, plantToEdit, updatePlant }) {
   
   const handleClick = () => {
     setDeletePlantModal(false);
@@ -8,7 +8,7 @@ export default function DeletePlantModal({setDeletePlantModal, setEditPlantModal
   
   return (
     <div className="delete-plant-modal">
-      <h2>Are you sure you want to delete {oldPlant}?</h2>
+      <h2>Are you sure you want to delete {plantToEdit}?</h2>
 
       <div>
         <button className="modal-button yes-button" onClick={handleClick}>Yes</button>

@@ -1,7 +1,7 @@
 import Flower from './Flower';
 import Seedbed from './Seedbed';
 
-export default function PlantRow({ row, gardenRowLength, setEditPlantModal, setOldPlant }) {
+export default function PlantRow({ row, gardenRowLength, setEditPlantModal, setPlantToEdit }) {
   // Fill in any partial row
   if (row.length < gardenRowLength) {
     for(let i = row.length; i < gardenRowLength; i++) {
@@ -19,10 +19,10 @@ export default function PlantRow({ row, gardenRowLength, setEditPlantModal, setO
     <div className="plant-row">
     {flowerArray.map((plant, idx) => 
       <Flower 
-        oldPlant={plant} 
+        plantToEdit={plant} 
         idx={idx}
         setEditPlantModal={setEditPlantModal}
-        setOldPlant={setOldPlant}  
+        setPlantToEdit={setPlantToEdit}  
       />
       )}
 

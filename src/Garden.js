@@ -1,10 +1,7 @@
 import PlantRow from "./PlantRow";
 import ProgressBar from "./ProgressBar";
 
-export default function Garden({plants, gardenStartingSize, gardenRowLength, setEditPlantModal, setOldPlant}) {
-  console.log(`gardenStartingSize: ${gardenStartingSize}`);
-  console.log(`gardenRowLength: ${gardenRowLength}`);
-  console.log(`garden plants: ${plants}`);
+export default function Garden({plants, gardenStartingSize, gardenRowLength, setEditPlantModal, setPlantToEdit}) {
   
   function getPlantRows() {
     let gardenArray = plants;
@@ -28,12 +25,9 @@ export default function Garden({plants, gardenStartingSize, gardenRowLength, set
       plantRows.push(gardenArray.slice(i, i+gardenRowLength));
     }
 
-        
+
     return plantRows;
   }
-  
-  const test = getPlantRows();
-  console.log(`test: ${test[0]}`);
 
   return (
     getPlantRows().map((row, idx) => 
@@ -43,7 +37,7 @@ export default function Garden({plants, gardenStartingSize, gardenRowLength, set
           row={row}
           gardenRowLength={gardenRowLength}
           setEditPlantModal={setEditPlantModal}
-          setOldPlant={setOldPlant}
+          setPlantToEdit={setPlantToEdit}
         />
 
         <ProgressBar 
