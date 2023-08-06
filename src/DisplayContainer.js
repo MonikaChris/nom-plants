@@ -2,11 +2,10 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import getMonday from "./dateFormatter2";
 import axios from "axios";
-import PlantRow from "./PlantRow";
-import ProgressBar from "./ProgressBar";
 import Banner from "./Banner";
 import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
+import Garden from "./Garden";
 
 function DisplayContainer() {
   const [week, setWeek] = useState(getMonday(new Date()));
@@ -16,18 +15,22 @@ function DisplayContainer() {
   const [showEditPlantModal, setEditPlantModal] = useState(false);
   const [oldPlant, setOldPlant] = useState("");
 
-  // Number of plants per row
-  const rowLength = 10;
-
   useEffect(() => {
     getPlants();
   }, []);
 
+  // Starting Garden Size (target plant consumption)
+  // Number of plants per row
+  const gardenStartingSize = 30;
+  const gardenRowLength = 10;
+
   async function getPlants() {
+    console.log('ran');
     try {
       const url = `${process.env.REACT_APP_SERVER}/api/weeks/${week}`;
       console.log(`url: ${url}`);
       const res = await axios.get(url);
+      console.log(`res: ${res.data.plants}`);
       setPlants(res.data.plants);
     } catch (error) {
       console.log(error);
@@ -45,44 +48,33 @@ function DisplayContainer() {
     };
 
     try {
-      const res = await axios(config);
+      await axios(config);
       getPlants();
     } catch (error) {
-      this.console.error(error);
+      console.error(error);
     }
   }
 
   async function updatePlant(newPlant) {
-    console.log(`updatePlant newPlant: ${newPlant}`);
     const config = {
-      method: "post",
+      method: "put",
       baseURL: process.env.REACT_APP_SERVER,
-      url: "/update_plants",
+      url: `/api/weeks/${week}/plants/${oldPlant}`,
       data: {
-        date: week,
-        oldPlant: oldPlant,
         newPlant: newPlant,
       },
     };
+    
     try {
-      const res = await axios(config);
+      await axios(config);
       getPlants();
     } catch (error) {
-      this.console.error(error);
+      console.error(error);
     }
   }
 
-  // Groups plants into rows for display
-  function getPlantRows(size) {
-    const plantRows = [];
-
-    for (let i = 0; i < plants.length; i += size) {
-      plantRows.push(plants.slice(i, i + size));
-    }
-
-    return plantRows;
-  }
-
+  
+  console.log(`plants: ${plants}`);
   return (
     <div className="display-container">
       <Banner
@@ -103,18 +95,13 @@ function DisplayContainer() {
           updatePlant={updatePlant}
         />
       ) : (
-        getPlantRows(rowLength).map((row, idx) => (
-          <>
-            <PlantRow
-              idx={idx}
-              row={row}
-              rowLength={rowLength}
-              setEditPlantModal={setEditPlantModal}
-              setOldPlant={setOldPlant}
-            />
-            <ProgressBar row={row} rowLength={rowLength} />
-          </>
-        ))
+          <Garden
+            plants={plants} 
+            gardenStartingSize={gardenStartingSize} 
+            gardenRowLength={gardenRowLength}
+            setEditPlantModal={setEditPlantModal}
+            setOldPlant={setOldPlant}
+          />
       )}
     </div>
   );

@@ -1,13 +1,16 @@
 import Flower from './Flower';
 import Seedbed from './Seedbed';
 
-export default function PlantRow({ row, rowLength, setEditPlantModal, setOldPlant }) {
-  let emptySpots = new Array(rowLength - row.length);
-  emptySpots.fill(0);
+export default function PlantRow({ row, gardenRowLength, setEditPlantModal, setOldPlant }) {
+  //Split row into flowers and seedbeds
+  let firstSeedIndex = row.findIndex(elem => elem === 0);
+  firstSeedIndex = firstSeedIndex === -1 ? gardenRowLength : firstSeedIndex;
+  const flowerArray = row.slice(0, firstSeedIndex);
+  const seedArray = row.slice(firstSeedIndex);
 
   return(
     <div className="plant-row">
-    {row.map((plant, idx) => 
+    {flowerArray.map((plant, idx) => 
       <Flower 
         oldPlant={plant} 
         idx={idx}
@@ -16,7 +19,7 @@ export default function PlantRow({ row, rowLength, setEditPlantModal, setOldPlan
       />
       )}
 
-    {emptySpots.map((hole, idx) => 
+    {seedArray.map((seedbed, idx) => 
     <Seedbed idx={idx}/>)}
     </div>
 
