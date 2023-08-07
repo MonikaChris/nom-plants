@@ -30,7 +30,11 @@ function DisplayContainer() {
     try {
       const url = `${process.env.REACT_APP_SERVER}/api/weeks/${week}`;
       const res = await axios.get(url);
-      setPlants(res.data.plants);
+      if(res.data.plants) {
+        setPlants(res.data.plants);
+      } else {
+        setPlants([]);
+      }
     } catch (error) {
       console.log(error);
       setErrorMessage("No Plants Found");
@@ -75,6 +79,7 @@ function DisplayContainer() {
     }
   }
 
+  console.log(`plants: ${plants}`);
   return (
     <div className="display-container">
       <Banner
