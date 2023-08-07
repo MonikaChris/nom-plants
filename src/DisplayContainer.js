@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
+import ErrorModal from "./ErrorModal";
 
 function DisplayContainer() {
   const [week, setWeek] = useState(getMonday(new Date()));
@@ -14,6 +15,7 @@ function DisplayContainer() {
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
   const [plantToEdit, setPlantToEdit] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     getPlants();
@@ -31,6 +33,7 @@ function DisplayContainer() {
       setPlants(res.data.plants);
     } catch (error) {
       console.log(error);
+      setErrorMessage("No Plants Found");
     }
   }
 
@@ -49,6 +52,7 @@ function DisplayContainer() {
       getPlants();
     } catch (error) {
       console.error(error);
+      setErrorMessage("Plant could not be added");
     }
   }
 
@@ -67,6 +71,7 @@ function DisplayContainer() {
       getPlants();
     } catch (error) {
       console.error(error);
+      setErrorMessage("Plant could not be updated");
     }
   }
 
@@ -78,6 +83,12 @@ function DisplayContainer() {
         setPlantModal={setPlantModal}
         week={week}
       />
+
+      {errorMessage && 
+      <ErrorModal
+        errorMessage={errorMessage}
+        setErrorMessage={setErrorMessage}
+      />}
 
       {/* Conditionally render either add plant modal, edit/delete plant modal, or garden */}
 
