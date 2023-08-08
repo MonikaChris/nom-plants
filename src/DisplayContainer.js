@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import getMonday from "./dateFormatter2";
+import { getMonday } from "./dateUtility";
 import axios from "axios";
 import Banner from "./Banner";
 import PlantFormModal from "./PlantFormModal";
