@@ -87,6 +87,7 @@ function DisplayContainer() {
         addPlant={addPlant}
         setPlantModal={setPlantModal}
         week={week}
+        setWeek={setWeek}
       />
 
       {errorMessage && 
