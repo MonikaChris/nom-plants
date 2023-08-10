@@ -2,21 +2,21 @@ export function getMonday(date) {
   const millisecondsToSubtract = ((date.getDay() + 6) % 7) * 24 * 60 * 60 * 1000;
   const newDate = new Date(date.getTime() - millisecondsToSubtract);
 
-  const year = newDate.getFullYear();
-  const month = newDate.getMonth() + 1;
-  const day = newDate.getDate();
-
-  return month + '-' + day + '-' + year;
+  return dateToString(newDate);
 }
 
 export function getPreviousWeek(date) {
-  const [month, day, year] = date.split('-');  // Switched day and month
+  const [month, day, year] = date.split('-');
   const oldDate = new Date(year, month - 1, day);
   const newDate = new Date(oldDate.getTime() - 7 * 24 * 60 * 60 * 1000);
   
-  const newYear = newDate.getFullYear();
-  const newMonth = newDate.getMonth() + 1;
-  const newDay = newDate.getDate();
+  return dateToString(newDate);
+}
 
-  return newMonth + '-' + newDay + '-' + newYear;
+function dateToString(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  return month + '-' + day + '-' + year;
 }
