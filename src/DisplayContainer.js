@@ -19,7 +19,7 @@ function DisplayContainer() {
 
   useEffect(() => {
     getPlants();
-  }, []);
+  }, [week]);
 
   // Starting Garden Size (target plant consumption)
   // Number of plants per row
