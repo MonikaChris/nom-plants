@@ -24,3 +24,7 @@ function adjustDateByDays(date, days) {
 function dateToString(date) {
   return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 }
+
+export function getCurrentWeek() {
+  return getMonday(new Date());
+} 

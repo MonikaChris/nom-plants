@@ -1,4 +1,4 @@
-import { getPreviousWeek, getNextWeek } from "./dateUtility";
+import { getPreviousWeek, getNextWeek, getCurrentWeek } from "./dateUtility";
 
 export default function Banner({week, setWeek, total, setPlantModal}) {
   
@@ -16,12 +16,16 @@ export default function Banner({week, setWeek, total, setPlantModal}) {
     setWeek(getNextWeek(week));
   }
 
+  const isCurrentWeek = () => {
+    return week === getCurrentWeek();
+  }
+
   return (
     <>
       <div className="week-banner">
         <button onClick={goBackOneWeek} className='back-button'/>
         <div className="week-text">Week of {date}</div>
-        <button onClick={goForwardOneWeek} className='forward-button'/>
+        <button onClick={goForwardOneWeek} disabled={isCurrentWeek()} className='forward-button'/>
       </div>
       
       <div className="button-row">
