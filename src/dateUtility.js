@@ -6,9 +6,17 @@ export function getMonday(date) {
 }
 
 export function getPreviousWeek(date) {
+  return adjustDateByDays(date, -7);
+}
+
+export function getNextWeek(date) {
+  return adjustDateByDays(date, 7);
+}
+
+function adjustDateByDays(date, days) {
   const [month, day, year] = date.split('-');
   const oldDate = new Date(year, month - 1, day);
-  const newDate = new Date(oldDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+  const newDate = new Date(oldDate.getTime() + days * 24 * 60 * 60 * 1000);
   
   return dateToString(newDate);
 }
