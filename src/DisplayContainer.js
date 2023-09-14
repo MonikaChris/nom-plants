@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { getMonday } from "./dateUtility";
-import axios from "axios";
 import Banner from "./Banner";
 import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
@@ -35,31 +34,12 @@ function DisplayContainer() {
   const gardenStartingSize = 30;
   const gardenRowLength = 10;
 
- 
-  async function updatePlant(newPlant) {
-    const config = {
-      method: "put",
-      baseURL: process.env.REACT_APP_SERVER,
-      url: `/api/weeks/${week}/plants/${plantToEdit}`,
-      data: {
-        newPlant: newPlant,
-      },
-    };
-    
-    try {
-      await axios(config);
-      getPlants();
-    } catch (error) {
-      console.error(error);
-      setErrorMessage("Plant could not be updated");
-    }
-  }
+  console.log(`plants: ${plants}`);
 
   return (
     <div className="display-container">
       <Banner
         total={plants.length}
-        // addPlant={addPlant}
         setPlantModal={setPlantModal}
         week={week}
         setWeek={setWeek}
@@ -84,7 +64,9 @@ function DisplayContainer() {
         <EditPlantModal
           plantToEdit={plantToEdit}
           setEditPlantModal={setEditPlantModal}
-          updatePlant={updatePlant}
+          //updatePlant={updatePlant}
+          week={week}
+          setPlants={setPlants}
         />
       ) : (
           <Garden

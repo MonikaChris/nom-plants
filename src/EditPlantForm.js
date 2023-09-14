@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { updatePlant } from './api/axios';
 
-export default function EditPlantForm({setDeletePlantModal, setEditPlantModal, plantToEdit, updatePlant}) {
+export default function EditPlantForm({ week, setPlants, setDeletePlantModal, setEditPlantModal, plantToEdit }) {
   const [input, setInput] = useState(plantToEdit);
   
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
     setEditPlantModal(false);
-    updatePlant(input);
+    const newWeekObj = await updatePlant(week, plantToEdit, input);
+    setPlants(newWeekObj.plants);
 
   }
   

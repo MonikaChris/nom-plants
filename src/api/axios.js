@@ -33,21 +33,21 @@ export async function addPlant(user, week, plant) {
   }
 }
 
-// export async function updatePlant(newPlant) {
-//   const config = {
-//     method: "put",
-//     baseURL,
-//     url: `/api/weeks/${week}/plants/${plantToEdit}`,
-//     data: {
-//       newPlant: newPlant,
-//     },
-//   };
+export async function updatePlant(week, plantToEdit, newPlant) {
+  const config = {
+    method: "put",
+    baseURL,
+    url: `/api/weeks/${week}/plants/${plantToEdit}`,
+    data: {
+      newPlant: newPlant,
+    },
+  };
   
-//   try {
-//     await axios(config);
-//     getPlants();
-//   } catch (error) {
-//     console.error(error);
-//     setErrorMessage("Plant could not be updated");
-//   }
-// }
+  try {
+    const response = await axios(config);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return "Plant could not be updated";
+  }
+}

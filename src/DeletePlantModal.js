@@ -1,9 +1,12 @@
-export default function DeletePlantModal({setDeletePlantModal, setEditPlantModal, plantToEdit, updatePlant }) {
+import { updatePlant } from './api/axios';
+
+export default function DeletePlantModal({week, setPlants, setDeletePlantModal, setEditPlantModal, plantToEdit }) {
   
-  const handleClick = () => {
+  const handleClick = async () => {
     setDeletePlantModal(false);
     setEditPlantModal(false);
-    updatePlant('');
+    const newWeekObj = await updatePlant(week, plantToEdit, '');
+    setPlants(newWeekObj.plants);
   }
   
   return (
