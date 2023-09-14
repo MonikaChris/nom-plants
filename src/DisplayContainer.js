@@ -7,6 +7,7 @@ import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
+import { getPlants } from "./api/axios";
 
 function DisplayContainer() {
   const [week, setWeek] = useState(getMonday(new Date()));
@@ -18,7 +19,15 @@ function DisplayContainer() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    getPlants();
+    async function fetchPlants() {
+      try {
+        const fetchedPlants = await getPlants(week);
+        setPlants(fetchedPlants);
+      } catch(error) {
+        setErrorMessage("No Plants Found");
+      }
+    }
+    fetchPlants();
   }, [week]);
 
   // Starting Garden Size (target plant consumption)
@@ -26,40 +35,7 @@ function DisplayContainer() {
   const gardenStartingSize = 30;
   const gardenRowLength = 10;
 
-  async function getPlants() {
-    try {
-      const url = `${process.env.REACT_APP_SERVER}/api/weeks/${week}`;
-      const res = await axios.get(url);
-      if(res.data.plants) {
-        setPlants(res.data.plants);
-      } else {
-        setPlants([]);
-      }
-    } catch (error) {
-      console.log(error);
-      setErrorMessage("No Plants Found");
-    }
-  }
-
-  async function addPlant(plant) {
-    const config = {
-      method: "post",
-      baseURL: process.env.REACT_APP_SERVER,
-      url: `/api/weeks/${week}/plants/${plant}`,
-      data: {
-        email: user,
-      },
-    };
-
-    try {
-      await axios(config);
-      getPlants();
-    } catch (error) {
-      console.error(error);
-      setErrorMessage("Plant could not be added");
-    }
-  }
-
+ 
   async function updatePlant(newPlant) {
     const config = {
       method: "put",
@@ -79,12 +55,11 @@ function DisplayContainer() {
     }
   }
 
-  console.log(`plants: ${plants}`);
   return (
     <div className="display-container">
       <Banner
         total={plants.length}
-        addPlant={addPlant}
+        // addPlant={addPlant}
         setPlantModal={setPlantModal}
         week={week}
         setWeek={setWeek}
@@ -99,7 +74,12 @@ function DisplayContainer() {
       {/* Conditionally render either add plant modal, edit/delete plant modal, or garden */}
 
       {showPlantModal ? (
-        <PlantFormModal setPlantModal={setPlantModal} addPlant={addPlant} />
+        <PlantFormModal
+          user={user}
+          week={week} 
+          setPlantModal={setPlantModal}
+          setPlants={setPlants} 
+        />
       ) : showEditPlantModal ? (
         <EditPlantModal
           plantToEdit={plantToEdit}
