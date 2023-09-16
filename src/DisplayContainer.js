@@ -6,7 +6,8 @@ import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
-import { getPlants } from "./api/axios";
+//import { getPlants } from "./api/axios";
+import { usePlants }  from "./hooks/usePlants";
 
 // Starting Garden Size (target plant consumption)
 // Number of pla/nts per row
@@ -14,25 +15,11 @@ const GARDEN_STARTING_SIZE = 30;
 const GARDEN_ROW_LENGTH = 10;
 
 function DisplayContainer() {
-  const [week, setWeek] = useState(getMonday(new Date()));
   const [user, setUser] = useState("lovebug@veggies.com");
-  const [plants, setPlants] = useState([]);
+  const { plants, setPlants, week, setWeek, errorMessage, setErrorMessage } = usePlants(getMonday(new Date()));
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
   const [plantToEdit, setPlantToEdit] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    async function fetchPlants() {
-      try {
-        const fetchedPlants = await getPlants(week);
-        setPlants(fetchedPlants);
-      } catch(error) {
-        setErrorMessage("No Plants Found");
-      }
-    }
-    fetchPlants();
-  }, [week]);
 
   return (
     <div className="display-container">
