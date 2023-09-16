@@ -1,12 +1,12 @@
 import PlantRow from "./PlantRow";
 import ProgressBar from "./ProgressBar";
 
-export default function Garden({plants, gardenStartingSize, gardenRowLength, setEditPlantModal, setPlantToEdit}) {
+export default function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit}) {
   
   function getPlantRows() {
     let gardenArray = plants;
-    if (!plants || plants.length < gardenStartingSize) {
-      gardenArray = new Array(gardenStartingSize);
+    if (!plants || plants.length < GARDEN_STARTING_SIZE) {
+      gardenArray = new Array(GARDEN_STARTING_SIZE);
       gardenArray.fill(0);
       
       if(plants) {
@@ -21,8 +21,8 @@ export default function Garden({plants, gardenStartingSize, gardenRowLength, set
 
   function groupRows(gardenArray) {
     const plantRows = [];
-    for(let i = 0; i < gardenArray.length; i+= gardenRowLength) {
-      plantRows.push(gardenArray.slice(i, i+gardenRowLength));
+    for(let i = 0; i < gardenArray.length; i+= GARDEN_ROW_LENGTH) {
+      plantRows.push(gardenArray.slice(i, i+GARDEN_ROW_LENGTH));
     }
 
 
@@ -35,14 +35,14 @@ export default function Garden({plants, gardenStartingSize, gardenRowLength, set
         <PlantRow
           idx={idx}
           row={row}
-          gardenRowLength={gardenRowLength}
+          GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH}
           setEditPlantModal={setEditPlantModal}
           setPlantToEdit={setPlantToEdit}
         />
 
         <ProgressBar 
           row={row}
-          gardenRowLength={gardenRowLength} 
+          GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH} 
         />
       </>
     )

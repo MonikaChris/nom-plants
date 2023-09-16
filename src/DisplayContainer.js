@@ -8,6 +8,11 @@ import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
 import { getPlants } from "./api/axios";
 
+// Starting Garden Size (target plant consumption)
+// Number of pla/nts per row
+const GARDEN_STARTING_SIZE = 30;
+const GARDEN_ROW_LENGTH = 10;
+
 function DisplayContainer() {
   const [week, setWeek] = useState(getMonday(new Date()));
   const [user, setUser] = useState("lovebug@veggies.com");
@@ -28,13 +33,6 @@ function DisplayContainer() {
     }
     fetchPlants();
   }, [week]);
-
-  // Starting Garden Size (target plant consumption)
-  // Number of plants per row
-  const gardenStartingSize = 30;
-  const gardenRowLength = 10;
-
-  console.log(`plants: ${plants}`);
 
   return (
     <div className="display-container">
@@ -71,8 +69,8 @@ function DisplayContainer() {
       ) : (
           <Garden
             plants={plants} 
-            gardenStartingSize={gardenStartingSize} 
-            gardenRowLength={gardenRowLength}
+            GARDEN_STARTING_SIZE={GARDEN_STARTING_SIZE} 
+            GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH}
             setEditPlantModal={setEditPlantModal}
             setPlantToEdit={setPlantToEdit}
           />
