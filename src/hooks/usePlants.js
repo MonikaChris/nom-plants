@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { getPlants } from "../api/axios";
 
-export function usePlants(initialWeek) {
+export function usePlants(week) {
   const [plants, setPlants] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [week, setWeek] = useState(initialWeek);
 
   useEffect(() => {
     async function fetchPlants() {
@@ -18,5 +17,5 @@ export function usePlants(initialWeek) {
     fetchPlants();
   }, [week]);
 
-  return { plants, setPlants, week, setWeek, errorMessage, setErrorMessage };
+  return { plants, setPlants, errorMessage, setErrorMessage };
 }

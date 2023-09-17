@@ -6,7 +6,6 @@ import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
-//import { getPlants } from "./api/axios";
 import { usePlants }  from "./hooks/usePlants";
 
 // Starting Garden Size (target plant consumption)
@@ -16,7 +15,8 @@ const GARDEN_ROW_LENGTH = 10;
 
 function DisplayContainer() {
   const [user, setUser] = useState("lovebug@veggies.com");
-  const { plants, setPlants, week, setWeek, errorMessage, setErrorMessage } = usePlants(getMonday(new Date()));
+  const [week, setWeek] = useState(getMonday(new Date()));
+  const { plants, setPlants, errorMessage, setErrorMessage } = usePlants(week);
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
   const [plantToEdit, setPlantToEdit] = useState("");
