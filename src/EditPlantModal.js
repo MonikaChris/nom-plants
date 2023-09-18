@@ -2,7 +2,7 @@ import DeletePlantModal from './DeletePlantModal';
 import EditPlantForm from './EditPlantForm';
 import { useState } from 'react';
 
-export default function EditPlantModal({ week, updatePlant, setPlants, plantToEdit, setEditPlantModal }) {
+export default function EditPlantModal({ week, updatePlant, deletePlant, setPlants, plantToEdit, setEditPlantModal }) {
   const [showDeletePlantModal, setDeletePlantModal] = useState(false);
   return (
     <div className="edit-plant-modal">
@@ -11,7 +11,7 @@ export default function EditPlantModal({ week, updatePlant, setPlants, plantToEd
           setDeletePlantModal={setDeletePlantModal}
           setEditPlantModal={setEditPlantModal}
           plantToEdit={plantToEdit}
-          //updatePlant={updatePlant}
+          deletePlant={deletePlant}
           week={week}
           setPlants={setPlants}
           

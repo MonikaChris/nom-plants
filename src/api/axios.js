@@ -51,3 +51,22 @@ export async function apiUpdatePlant(week, plantToEdit, newPlant) {
     return "Plant could not be updated";
   }
 }
+
+  export async function apiDeletePlant(week, plantToDelete) {
+    const config = {
+      method: "put",
+      baseURL,
+      url: `/api/weeks/${week}/plants/${plantToDelete}`,
+      data: {
+        newPlant: "",
+      },
+    };
+    
+    try {
+      const response = await axios(config);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return "Plant could not be deleted";
+    }
+}

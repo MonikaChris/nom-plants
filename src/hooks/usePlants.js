@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPlants, apiAddPlant, apiUpdatePlant } from "../api/axios";
+import { getPlants, apiAddPlant, apiUpdatePlant, apiDeletePlant } from "../api/axios";
 
 export function usePlants(user, week) {
   const [plants, setPlants] = useState([]);
@@ -39,6 +39,15 @@ export function usePlants(user, week) {
     }
   }
 
+  async function deletePlant(plantToDelete) {
+    try{
+      await apiDeletePlant(week, plantToDelete);
+      fetchPlants();
+    } catch(error) {
+      console.error(error);
+      setErrorMessage("Could not delete plant");
+    }
+  }
 
-  return { plants, setPlants, addPlant, updatePlant, errorMessage, setErrorMessage };
+  return { plants, setPlants, addPlant, updatePlant, deletePlant, errorMessage, setErrorMessage };
 }
