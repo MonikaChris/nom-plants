@@ -16,7 +16,7 @@ const GARDEN_ROW_LENGTH = 10;
 function DisplayContainer() {
   const [user, setUser] = useState("lovebug@veggies.com");
   const [week, setWeek] = useState(getMonday(new Date()));
-  const { plants, addPlant, setPlants, errorMessage, setErrorMessage } = usePlants(user, week);
+  const { plants, addPlant, updatePlant, setPlants, errorMessage, setErrorMessage } = usePlants(user, week);
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
   const [plantToEdit, setPlantToEdit] = useState("");
@@ -47,9 +47,10 @@ function DisplayContainer() {
         <EditPlantModal
           plantToEdit={plantToEdit}
           setEditPlantModal={setEditPlantModal}
-          //updatePlant={updatePlant}
+          updatePlant={updatePlant}
           week={week}
           setPlants={setPlants}
+          
         />
       ) : (
           <Garden

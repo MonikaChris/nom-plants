@@ -33,7 +33,7 @@ export async function apiAddPlant(user, week, plant) {
   }
 }
 
-export async function updatePlant(week, plantToEdit, newPlant) {
+export async function apiUpdatePlant(week, plantToEdit, newPlant) {
   const config = {
     method: "put",
     baseURL,

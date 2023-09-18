@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPlants, apiAddPlant, updatePlant } from "../api/axios";
+import { getPlants, apiAddPlant, apiUpdatePlant } from "../api/axios";
 
 export function usePlants(user, week) {
   const [plants, setPlants] = useState([]);
@@ -29,6 +29,16 @@ export function usePlants(user, week) {
     }
   }
 
+  async function updatePlant(plantToEdit, newPlant) {
+    try{
+      await apiUpdatePlant(week, plantToEdit, newPlant);
+      fetchPlants();
+    } catch(error) {
+      console.error(error);
+      setErrorMessage("Could not update plant");
+    }
+  }
 
-  return { plants, setPlants, addPlant, errorMessage, setErrorMessage };
+
+  return { plants, setPlants, addPlant, updatePlant, errorMessage, setErrorMessage };
 }
