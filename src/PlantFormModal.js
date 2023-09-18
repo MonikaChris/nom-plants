@@ -1,19 +1,15 @@
 import { useState } from 'react';
-import { addPlant } from './api/axios';
 
-export default function PlantFormModal({user, week, setPlants, setPlantModal}) {
+export default function PlantFormModal({ addPlant, setPlantModal }) {
   const [plantType, setPlantType] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();    
-    const newWeekObj = await addPlant(user, week, plantType);
+    addPlant(plantType);
     
-    //Hide modal and reset state
+    //Hide modal, reset component state
     setPlantModal(false);
     setPlantType('');
-
-    //Update plants display
-    setPlants(newWeekObj.plants);
   }
 
   return (

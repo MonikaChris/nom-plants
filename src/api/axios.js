@@ -13,7 +13,7 @@ export async function getPlants(week) {
   }
 }
 
-export async function addPlant(user, week, plant) {
+export async function apiAddPlant(user, week, plant) {
   const config = {
     method: "post",
     baseURL,
