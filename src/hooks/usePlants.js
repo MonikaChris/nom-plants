@@ -49,5 +49,5 @@ export function usePlants(user, week) {
     }
   }
 
-  return { plants, setPlants, addPlant, updatePlant, deletePlant, errorMessage, setErrorMessage };
+  return { plants, addPlant, updatePlant, deletePlant, errorMessage, setErrorMessage };
 }

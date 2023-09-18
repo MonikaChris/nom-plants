@@ -1,4 +1,4 @@
-export default function DeletePlantModal({week, deletePlant, setPlants, setDeletePlantModal, setEditPlantModal, plantToEdit }) {
+export default function DeletePlantModal({week, deletePlant, setDeletePlantModal, setEditPlantModal, plantToEdit }) {
   
   const handleClick = async () => {
     setDeletePlantModal(false);
