@@ -1,8 +1,8 @@
-export default function ErrorModal({ errorMessage, setErrorMessage }) {
+export default function ErrorModal({ errorMessage, clearErrorMessage }) {
   return (
     <div className="modal">
       <h2>{errorMessage}</h2>
-      <button onClick={() => setErrorMessage("")}>OK</button>
+      <button onClick={clearErrorMessage()}>OK</button>
     </div>
   )
 }

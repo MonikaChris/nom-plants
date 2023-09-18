@@ -49,5 +49,10 @@ export function usePlants(user, week) {
     }
   }
 
-  return { plants, addPlant, updatePlant, deletePlant, errorMessage, setErrorMessage };
+  async function clearErrorMessage() {
+    setErrorMessage("");
+    return errorMessage;
+  }
+
+  return { plants, addPlant, updatePlant, deletePlant, errorMessage, clearErrorMessage };
 }
