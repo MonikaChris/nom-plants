@@ -19,7 +19,7 @@ export default function PlantRow({ row, GARDEN_ROW_LENGTH, setEditPlantModal, se
     <div className="plant-row">
     {flowerArray.map((plant, idx) => 
       <Flower 
-        plantToEdit={plant} 
+        plant={plant} 
         idx={idx}
         setEditPlantModal={setEditPlantModal}
         setPlantToEdit={setPlantToEdit}  
