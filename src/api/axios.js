@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseURL = process.env.REACT_APP_SERVER;
 
-export async function getPlants(week) {
+export async function apiGetPlants(user, week) {
   try {
     const url = `${baseURL}/api/weeks/${week}`;
     const res = await axios.get(url);
@@ -33,7 +33,7 @@ export async function apiAddPlant(user, week, plant) {
   }
 }
 
-export async function apiUpdatePlant(week, plantToEdit, newPlant) {
+export async function apiUpdatePlant(user, week, plantToEdit, newPlant) {
   const config = {
     method: "put",
     baseURL,
@@ -52,7 +52,7 @@ export async function apiUpdatePlant(week, plantToEdit, newPlant) {
   }
 }
 
-  export async function apiDeletePlant(week, plantToDelete) {
+  export async function apiDeletePlant(user, week, plantToDelete) {
     const config = {
       method: "put",
       baseURL,

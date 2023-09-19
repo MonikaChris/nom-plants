@@ -14,7 +14,7 @@ const GARDEN_STARTING_SIZE = 30;
 const GARDEN_ROW_LENGTH = 10;
 
 function DisplayContainer() {
-  const [user, setUser] = useState("lovebug@veggies.com");
+  const [user, setUser] = useState("test@veggies.com");
   const [week, setWeek] = useState(getMonday(new Date()));
   const { plants, addPlant, updatePlant, deletePlant, errorMessage, clearErrorMessage } = usePlants(user, week);
   const [showPlantModal, setPlantModal] = useState(false);
@@ -33,7 +33,7 @@ function DisplayContainer() {
       {errorMessage && 
       <ErrorModal
         errorMessage={errorMessage}
-        setErrorMessage={clearErrorMessage}
+        clearErrorMessage={clearErrorMessage}
       />}
 
       {/* Conditionally render either add plant modal, edit/delete plant modal, or garden */}
