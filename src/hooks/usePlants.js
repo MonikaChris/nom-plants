@@ -14,6 +14,8 @@ export function usePlants(user, week) {
   , [week]);
 
   
+  const isDemoUser = user === DEMO_EMAIL;
+
   //Wrapper for api CRUD methods to accept user as first parameter
   const apiWrapper = {
     getPlants : (...args) => apiGetPlants(user, ...args),
@@ -23,10 +25,10 @@ export function usePlants(user, week) {
   }
 
   const dispatch = {
-    handleGetPlants : user === DEMO_EMAIL ? sessionGetPlants : apiWrapper.getPlants,
-    handleAddPlant : user === DEMO_EMAIL ? sessionAddPlant : apiWrapper.addPlant,
-    handleUpdatePlant : user === DEMO_EMAIL ? sessionUpdatePlant : apiWrapper.updatePlant,
-    handleDeletePlant : user === DEMO_EMAIL ? sessionDeletePlant : apiWrapper.deletePlant
+    handleGetPlants : isDemoUser ? sessionGetPlants : apiWrapper.getPlants,
+    handleAddPlant : isDemoUser ? sessionAddPlant : apiWrapper.addPlant,
+    handleUpdatePlant : isDemoUser ? sessionUpdatePlant : apiWrapper.updatePlant,
+    handleDeletePlant : isDemoUser ? sessionDeletePlant : apiWrapper.deletePlant
   }
 
   async function fetchPlants() {
