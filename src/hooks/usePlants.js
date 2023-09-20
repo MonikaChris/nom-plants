@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { apiGetPlants, apiAddPlant, apiUpdatePlant, apiDeletePlant } from "../api/axios";
-import { sessionGetPlants, sessionAddPlant, sessionUpdatePlant, sessionDeletePlant } from "../api/session";
+import PlantsAPI from "../api/plantsAPI";
+import SessionAPI from "../api/sessionAPI";
 
 const DEMO_EMAIL = "lovebug@veggies.com";
 
@@ -9,45 +9,24 @@ export function usePlants(user, week) {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    fetchPlants();
-  }
-  , [week]);
+    getPlants();
+  }, [week]);
 
-  
-  const isDemoUser = user === DEMO_EMAIL;
+  const api = user === DEMO_EMAIL ? new SessionAPI() : new PlantsAPI(user);
 
-  //Wrapper for api CRUD methods to accept user as first parameter
-  const apiWrapper = {
-    getPlants : (...args) => apiGetPlants(user, ...args),
-    addPlant : (...args) => apiAddPlant(user, ...args),
-    updatePlant : (...args) => apiUpdatePlant(user, ...args),
-    deletePlant : (...args) => apiDeletePlant(user, ...args)
-  }
-
-  const dispatch = {
-    handleGetPlants : isDemoUser ? sessionGetPlants : apiWrapper.getPlants,
-    handleAddPlant : isDemoUser ? sessionAddPlant : apiWrapper.addPlant,
-    handleUpdatePlant : isDemoUser ? sessionUpdatePlant : apiWrapper.updatePlant,
-    handleDeletePlant : isDemoUser ? sessionDeletePlant : apiWrapper.deletePlant
-  }
-
-  async function fetchPlants() {
+  async function getPlants() {
     try {
-      if (user === DEMO_EMAIL && sessionStorage.getItem(JSON.stringify(week))) {
-        setPlants(JSON.parse(sessionStorage.getItem(JSON.stringify(week))));
-        return
-      }
-      const fetchedPlants = await dispatch.handleGetPlants(week);
+      const fetchedPlants = await api.getPlants(week);
       setPlants(fetchedPlants || []);
     } catch (error) {
-      setErrorMessage(error.message || "An error occurred");
+      setErrorMessage("Could not fetch plants");
     }
   }
   
   async function addPlant(newPlant) {
     try {
-      await dispatch.handleAddPlant(week, newPlant);
-      fetchPlants();
+      await api.addPlant(week, newPlant);
+      getPlants();
     } catch(error) {
         console.error(error);
         setErrorMessage("Could not add plant");
@@ -56,8 +35,8 @@ export function usePlants(user, week) {
  
   async function updatePlant(plantToEdit, newPlant) {
     try{
-      await dispatch.handleUpdatePlant(week, plantToEdit, newPlant);
-      fetchPlants();
+      await api.updatePlant(week, plantToEdit, newPlant);
+      getPlants();
     } catch(error) {
       console.error(error);
       setErrorMessage("Could not update plant");
@@ -66,8 +45,8 @@ export function usePlants(user, week) {
   
   async function deletePlant(plantToDelete) {
     try{
-      await dispatch.handleDeletePlant(week, plantToDelete);
-      fetchPlants();
+      await api.deletePlant(week, plantToDelete);
+      getPlants();
     } catch(error) {
       console.error(error);
       setErrorMessage("Could not delete plant");
