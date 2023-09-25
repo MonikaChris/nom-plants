@@ -9,7 +9,7 @@ import ErrorModal from "./ErrorModal";
 import { usePlants }  from "./hooks/usePlants";
 
 // Starting Garden Size (target plant consumption)
-// Number of pla/nts per row
+// Number of plants per row
 const GARDEN_STARTING_SIZE = 30;
 const GARDEN_ROW_LENGTH = 10;
 
