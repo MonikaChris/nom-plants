@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function RegisterForm() {
   const [username,setUser] = useState("");
@@ -9,12 +10,13 @@ function RegisterForm() {
     e.preventDefault();
     const config = {
       method: "post",
-      baseURl: process.env.REACT_APP_SERVER,
+      baseURL: process.env.REACT_APP_SERVER,
       url: 'api/register',
       data: {
         username,
         password 
-      }
+      },
+      withCredentials: true
     }
 
     try {
@@ -39,6 +41,8 @@ function RegisterForm() {
 
         <button type="submit">Register</button>
       </form>
+
+      <Link to="/">Login</Link>
     </>
   )
 

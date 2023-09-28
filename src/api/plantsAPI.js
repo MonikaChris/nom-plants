@@ -1,15 +1,23 @@
 import axios from "axios";
 
 class PlantsAPI {
-  constructor(user) {
-    this.user = user;
+  constructor(token) {
     this.baseURL = process.env.REACT_APP_SERVER;
+    this.headers = {
+      'Authorization': `Bearer ${token}`
+    }
   }
 
   async getPlants(week) {
     try {
-      const url = `${this.baseURL}/api/weeks/${week}`;
-      const res = await axios.get(url);
+      const config = {
+        method: "get",
+        baseURL: this.baseURL,
+        url: `${this.baseURL}/api/weeks/${week}`,
+        headers: this.headers,
+      }
+      const res = await axios(config);
+      console.log(res.data);
       return res.data.plants || [];
     } catch (error) {
       console.error(error);
@@ -22,9 +30,7 @@ class PlantsAPI {
       method: "post",
       baseURL: this.baseURL,
       url: `/api/weeks/${week}/plants/${plant}`,
-      data: {
-        email: this.user,
-      },
+      headers: this.headers,
     };
 
     try {
@@ -42,6 +48,7 @@ class PlantsAPI {
       method: "put",
       baseURL: this.baseURL,
       url: `/api/weeks/${week}/plants/${plantToEdit}`,
+      headers: this.headers,
       data: {
         newPlant: newPlant,
       },
@@ -61,6 +68,7 @@ class PlantsAPI {
         method: "put",
         baseURL: this.baseURL,
         url: `/api/weeks/${week}/plants/${plantToDelete}`,
+        headers: this.headers,
         data: {
           newPlant: "",
         },

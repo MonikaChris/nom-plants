@@ -1,10 +1,34 @@
 import './App.css';
-import DisplayContainer from './DisplayContainer';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import DisplayContainer from './GardenDisplay';
+import Welcome from './Welcome';
+import Login from './Login';
+import RegisterForm from './RegisterForm';
+import RequireAuth from './RequireAuth';
+import PersistAuth from './PersistAuth';
+import GardenDisplay from './GardenDisplay';
 
 function App() {
   return (
     <div className="App">
-      <DisplayContainer/>
+      <div className="display-container">
+      <Routes>
+        
+        
+          <Route path="/" element={ <Welcome /> } >
+            <Route index element={ <Login />} />
+            <Route path="register" element={ <RegisterForm />} />
+          </Route>
+
+          <Route element={ <RequireAuth /> } >
+            <Route element={ <PersistAuth /> } >
+              <Route path="/garden" element={ <GardenDisplay /> } />
+            </Route>
+          </Route>
+        
+     
+      </Routes>
+      </div>
     </div>
   );
 }
