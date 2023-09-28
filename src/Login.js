@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import axios from "axios";
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from "./context/AuthProvider";
+import AuthAPI from "./api/authAPI";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -9,23 +9,14 @@ function Login() {
   const { setAuth } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  const location = useLocation();
+
+  const api = new AuthAPI();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const config = {
-      method: "post",
-      baseURL: process.env.REACT_APP_SERVER,
-      url: '/api/auth',
-      data: {
-        username,
-        password
-      },
-      withCredentials: true
-    }
-
+    
     try {
-      const response = await axios(config);
+      const response = await api.authorize(username, password);
       const accessToken = response?.data?.accessToken;
       setAuth({ username, accessToken });
       
