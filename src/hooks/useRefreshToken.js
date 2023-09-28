@@ -11,7 +11,6 @@ function useRefreshToken() {
       baseURL: process.env.REACT_APP_SERVER,
       url: '/api/refresh',
       withCredentials: true,
-      //headers: {'Content-Type': 'application/json'}
     }
 
     const response = await axios(config);

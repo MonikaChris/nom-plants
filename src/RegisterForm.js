@@ -1,26 +1,17 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import authAPI from "./api/authAPI";
 
 function RegisterForm() {
   const [username,setUser] = useState("");
   const [password, setPassword] = useState("");
 
+  const api = new authAPI();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const config = {
-      method: "post",
-      baseURL: process.env.REACT_APP_SERVER,
-      url: 'api/register',
-      data: {
-        username,
-        password 
-      },
-      withCredentials: true
-    }
-
     try {
-      await axios(config);
+      await api.register(username, password);
     } catch(error) {
       console.error(error);
     }
