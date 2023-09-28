@@ -52,7 +52,7 @@ class AuthAPI {
     };
 
     try {
-      await axios(config);
+      return await axios(config);
     } catch (error) {
       console.error(error);
     }
