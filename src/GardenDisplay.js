@@ -7,22 +7,19 @@ import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
 import { usePlants }  from "./hooks/usePlants";
-import AuthContext from "./context/AuthProvider";
 
 // Starting Garden Size (target plant consumption)
 // Number of plants per row
 const GARDEN_STARTING_SIZE = 30;
 const GARDEN_ROW_LENGTH = 10;
 
-function GardenDisplay() {
-  const { user } = useContext(AuthContext);
+function GardenDisplay({ user }) {
   const [week, setWeek] = useState(getMonday(new Date()));
   const { plants, addPlant, updatePlant, deletePlant, errorMessage, clearErrorMessage } = usePlants(user, week);
   const [showPlantModal, setPlantModal] = useState(false);
   const [showEditPlantModal, setEditPlantModal] = useState(false);
   const [plantToEdit, setPlantToEdit] = useState("");
 
-  console.log(plants);
   return (
     <div className="garden-display">
       <Banner
