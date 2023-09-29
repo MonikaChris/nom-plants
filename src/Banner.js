@@ -1,11 +1,22 @@
 import { getPreviousWeek, getNextWeek, getCurrentWeek } from "./dateUtility";
+import AuthAPI from "./api/authAPI";
+import AuthContext from "./context/AuthProvider";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Banner({week, setWeek, total, setPlantModal}) {
+export default function Banner({ user, week, setWeek, total, setPlantModal }) {
+  const { setAuth } = useContext(AuthContext);
+
+  const navigate = useNavigate();
   
   const months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
   const dateParts = week.split('-');
   const month = months[Number(dateParts[0]) - 1];
   const date = `${month} ${dateParts[1]}, ${dateParts[2]}`;
+
+  const api = new AuthAPI();
+
+  const DEMO_EMAIL = "lovebug@veggies.com";
 
   const goBackOneWeek = () => {
     console.log(`week: ${week}`);
@@ -18,6 +29,12 @@ export default function Banner({week, setWeek, total, setPlantModal}) {
 
   const isCurrentWeek = () => {
     return week === getCurrentWeek();
+  }
+
+  const logout = async () => {
+    await api.logout();
+    setAuth({});
+    navigate('/');
   }
 
   return (
@@ -35,6 +52,10 @@ export default function Banner({week, setWeek, total, setPlantModal}) {
         <button className="nom-history-button">
           <img className="chart-icon" src={require('./images/bar-chart.png')} alt="Nom History"/>
         </button>
+
+        {user !== DEMO_EMAIL && (
+          <button onClick={logout} className="logout-button">Logout</button>
+        )}
         </div>        
       </div> 
     </>

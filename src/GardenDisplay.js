@@ -30,6 +30,7 @@ function GardenDisplay() {
         setPlantModal={setPlantModal}
         week={week}
         setWeek={setWeek}
+        user={user}
       />
 
       {errorMessage && 

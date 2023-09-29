@@ -8,14 +8,18 @@ function useRefreshToken() {
   const api = new AuthAPI();
 
   const refresh = async () => {
-    const response = await api.refresh();
+    try {
+      const response = await api.refresh();
 
-    setAuth(prev => {
-      return {
-        ...prev,
-        accessToken: response.data.accessToken
-      }
-    });
+      setAuth(prev => {
+        return {
+          ...prev,
+          accessToken: response?.data?.accessToken
+        }
+      });
+    } catch(error) {
+      throw error;
+    }
   }
   return refresh;
 }
