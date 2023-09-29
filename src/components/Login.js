@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import AuthContext from "./context/AuthProvider";
-import AuthAPI from "./api/authAPI";
+import AuthContext from "../context/AuthProvider";
+import AuthAPI from "../api/authAPI";
 
 function Login() {
   const [username, setUsername] = useState("");

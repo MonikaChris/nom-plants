@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import authAPI from "./api/authAPI";
+import authAPI from "../api/authAPI";
 
 function RegisterForm() {
   const [username,setUser] = useState("");

@@ -1,6 +1,6 @@
-import { getPreviousWeek, getNextWeek, getCurrentWeek } from "./dateUtility";
-import AuthAPI from "./api/authAPI";
-import AuthContext from "./context/AuthProvider";
+import { getPreviousWeek, getNextWeek, getCurrentWeek } from "../dateUtility";
+import AuthAPI from "../api/authAPI";
+import AuthContext from "../context/AuthProvider";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -50,7 +50,7 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
         <div>
         <button onClick={() =>  setPlantModal(true)} className="add-plant-button">+</button>
         <button className="nom-history-button">
-          <img className="chart-icon" src={require('./images/bar-chart.png')} alt="Nom History"/>
+          <img className="chart-icon" src={require('../images/bar-chart.png')} alt="Nom History"/>
         </button>
 
         {user !== DEMO_EMAIL && (

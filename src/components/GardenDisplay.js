@@ -1,12 +1,12 @@
-import "./App.css";
+import "../App.css";
 import { useState, useEffect, useContext } from "react";
-import { getMonday } from "./dateUtility";
+import { getMonday } from "../dateUtility";
 import Banner from "./Banner";
 import PlantFormModal from "./PlantFormModal";
 import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
-import { usePlants }  from "./hooks/usePlants";
+import { usePlants }  from "../hooks/usePlants";
 
 // Starting Garden Size (target plant consumption)
 // Number of plants per row

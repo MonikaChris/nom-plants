@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
-import AuthContext from "./context/AuthProvider";
-import useRefreshToken from "./hooks/useRefreshToken";
+import AuthContext from "../context/AuthProvider";
+import useRefreshToken from "../hooks/useRefreshToken";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
