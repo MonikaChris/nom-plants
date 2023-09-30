@@ -165,8 +165,8 @@ h2 {
   padding-top: .4vw;
   padding-bottom: .4vw;
   margin-bottom: 1vw;
-  margin-left: 15%;
-  margin-right: 3%;
+  padding-left: 15%;
+  padding-right: 3%;
 }
 
 .add-plant-button {

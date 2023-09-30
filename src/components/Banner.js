@@ -44,6 +44,7 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
         <button onClick={goForwardOneWeek} disabled={isCurrentWeek()} className='forward-button'/>
       </div>
       
+      
       <div className="button-row">
         <div className="total-text">Plants Nom'd: {total}</div>
         <div>
