@@ -199,11 +199,21 @@ h2 {
   width: 2.5rem;
   font-size: 1vw;
   cursor: pointer;
+  
 }
 
 .chart-icon {
   height: 1.5rem;
   width: 1.5rem;
+  padding: 7px;
+  border: solid 1px rgb(142, 140, 140);
+  border-radius: 2px;
+  background-color: rgb(229, 235, 232);
+  vertical-align: top;
+}
+
+.chart-icon:hover {
+  background-color: rgb(198, 195, 195);
 }
 
 .home-icon {

@@ -49,9 +49,9 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
         <div className="total-text">Plants Nom'd: {total}</div>
         <div>
         <button onClick={() =>  setPlantModal(true)} className="add-plant-button">+</button>
-        <button className="nom-history-button">
+        <Link to="/chart">
           <img className="chart-icon" src={require('../images/bar-chart.png')} alt="Nom History"/>
-        </button>
+        </Link>
         <Link to="/">
           <img className="home-icon" src={require('../images/home.png')} alt="Home Button" />
         </Link>
