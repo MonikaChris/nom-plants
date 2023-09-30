@@ -46,13 +46,13 @@ h2 {
 .demo-button {
   background-color: green;
   border: 1px solid rgb(15, 71, 31);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .demo-button:hover {
   background-color: rgb(46, 158, 46);
 }
-
-
 
 .welcome {
   grid-area: welcome;
@@ -194,6 +194,18 @@ h2 {
   height: 1.5rem;
   width: 1.5rem;
 }
+
+.home-icon {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 1rem;
+  padding: 3px;
+  border: solid 1px rgb(142, 140, 140);
+  border-radius: 2px;
+  background-color: rgb(213, 218, 215);
+  vertical-align: top;
+}
+
 
 .back-button {
   background-image: url(./images/leftLeaf.png);

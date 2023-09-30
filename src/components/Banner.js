@@ -2,7 +2,7 @@ import { getPreviousWeek, getNextWeek, getCurrentWeek } from "../dateUtility";
 import AuthAPI from "../api/authAPI";
 import AuthContext from "../context/AuthProvider";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Banner({ user, week, setWeek, total, setPlantModal }) {
   const { setAuth } = useContext(AuthContext);
@@ -52,6 +52,9 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
         <button className="nom-history-button">
           <img className="chart-icon" src={require('../images/bar-chart.png')} alt="Nom History"/>
         </button>
+        <Link to="/">
+          <img className="home-icon" src={require('../images/home.png')} alt="Home Button" />
+        </Link>
 
         {user !== DEMO_EMAIL && (
           <button onClick={logout} className="logout-button">Logout</button>
