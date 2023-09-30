@@ -21,6 +21,72 @@
   overflow: auto;
 }
 
+.generic-button {
+  width: 100px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.welcome {
+  grid-area: welcome;
+  padding: 8%;
+}
+
+.login-form {
+  grid-area: login-form;
+}
+
+.register-info {
+  grid-area: register-info;
+}
+
+.demo-info {
+  grid-area: demo-info;
+}
+
+.homepage {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+  "welcome sign-in-container";
+}
+
+.sign-in-container {
+  grid-area: sign-in-container;
+  display: grid;
+  grid-template-rows: 5% 45% 25% 25%;
+  grid-template-areas:
+  "."
+  "login-form"
+  "register-info"
+  "demo-info";
+
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+}
+
+.username-field, .password-field {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .garden-display {
   width: 100%;
   height: 100%;

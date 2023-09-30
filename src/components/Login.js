@@ -33,20 +33,33 @@ function Login() {
   }
 
   return (
-    <>
-    <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="sign-in-container">
+    
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <div className="username-field">
         <label htmlFor="login-username">Username:</label>
         <input id="login-username" onChange={e => setUsername(e.target.value)}type="text" />
+        </div>
+        <div className="password-field">
         <label htmlFor="login-password">Password:</label>
         <input id="login-password" onChange={e => setPassword(e.target.value)} type="text" />
+        </div>
 
-        <button type="submit">Sign In</button>
+        <button className="generic-button" type="submit">Sign In</button>
       </form>
 
-      <Link to="/register">Register</Link>
-      <Link to="/demo">Demo</Link>
-    </>
+    <div className="register-info">
+      <p>If you don't have an account, please register here:</p>
+      <br/>
+      <Link className="generic-button" to="/register">Register</Link>
+    </div>
+    <div className="demo-info">
+      <p>Or check out this demo to tour all the features of the app:</p>
+      <br/>
+      <Link className="generic-button" class-name="demo-button" to="/demo">Demo</Link>
+    </div>
+    </div>
   )
 
 }
