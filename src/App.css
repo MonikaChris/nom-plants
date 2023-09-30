@@ -206,6 +206,10 @@ h2 {
   vertical-align: top;
 }
 
+.logout-button {
+  margin-left: 1rem;
+  vertical-align: super;
+}
 
 .back-button {
   background-image: url(./images/leftLeaf.png);

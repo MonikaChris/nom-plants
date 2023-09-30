@@ -57,7 +57,7 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
         </Link>
 
         {user !== DEMO_EMAIL && (
-          <button onClick={logout} className="logout-button">Logout</button>
+          <button onClick={logout} className="generic-button logout-button">Logout</button>
         )}
         </div>        
       </div> 
