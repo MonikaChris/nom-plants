@@ -159,12 +159,14 @@ h2 {
 
 .button-row {
   display:flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: rgb(145, 246, 241, 0.5);
   padding-top: .4vw;
   padding-bottom: .4vw;
   margin-bottom: 1vw;
+  margin-left: 15%;
+  margin-right: 3%;
 }
 
 .add-plant-button {
@@ -174,6 +176,10 @@ h2 {
   font-size: 2.2vw;
   margin-right: 1rem;
   cursor: pointer;
+}
+
+.add-plant-button:hover {
+  background-color: rgb(217, 213, 213);
 }
 
 .total-text {
@@ -204,6 +210,10 @@ h2 {
   border-radius: 2px;
   background-color: rgb(213, 218, 215);
   vertical-align: top;
+}
+
+.home-icon:hover {
+  background-color: rgb(209, 204, 204);
 }
 
 .logout-button {
