@@ -1,5 +1,6 @@
 import Flower from './Flower';
 import Seedbed from './Seedbed';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function PlantRow({ row, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) {
   // Fill in any partial row
@@ -17,17 +18,17 @@ export default function PlantRow({ row, GARDEN_ROW_LENGTH, setEditPlantModal, se
 
   return(
     <div className="plant-row">
-    {flowerArray.map((plant, idx) => 
+    {flowerArray.map((plant) => 
       <Flower 
+        key={uuidv4()}
         plant={plant} 
-        idx={idx}
         setEditPlantModal={setEditPlantModal}
         setPlantToEdit={setPlantToEdit}  
       />
       )}
 
-    {seedArray.map((seedbed, idx) => 
-    <Seedbed idx={idx}/>)}
+    {seedArray.map(() => 
+    <Seedbed key={uuidv4()}/>)}
     </div>
 
   )

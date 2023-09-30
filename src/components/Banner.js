@@ -19,7 +19,6 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
   const DEMO_EMAIL = "lovebug@veggies.com";
 
   const goBackOneWeek = () => {
-    console.log(`week: ${week}`);
     setWeek(getPreviousWeek(week));
   }
 

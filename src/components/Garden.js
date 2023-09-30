@@ -1,5 +1,7 @@
 import PlantRow from "./PlantRow";
 import ProgressBar from "./ProgressBar";
+import { v4 as uuidv4 } from 'uuid';
+import { Fragment } from "react";
 
 export default function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit}) {
   
@@ -30,21 +32,20 @@ export default function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH,
   }
 
   return (
-    getPlantRows().map((row, idx) => 
-      <>
+    getPlantRows().map(row => 
+      <Fragment key={uuidv4()}>
         <PlantRow
-          idx={idx}
           row={row}
           GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH}
           setEditPlantModal={setEditPlantModal}
           setPlantToEdit={setPlantToEdit}
         />
 
-        <ProgressBar 
+        <ProgressBar
           row={row}
           GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH} 
         />
-      </>
+      </Fragment>
     )
   );
 }

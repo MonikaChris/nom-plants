@@ -17,7 +17,6 @@ class PlantsAPI {
         headers: this.headers,
       }
       const res = await axios(config);
-      console.log(res.data);
       return res.data.plants || [];
     } catch (error) {
       console.error(error);
@@ -35,7 +34,6 @@ class PlantsAPI {
 
     try {
       const response = await axios(config);
-      console.log(`axios: ${response.data}`);
       return response.data;
     } catch (error) {
       console.error(error);

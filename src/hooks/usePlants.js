@@ -18,10 +18,8 @@ export function usePlants(user, week) {
 
   async function getPlants() {
     try {
-      console.log(auth);
       const fetchedPlants = await api.getPlants(week);
       setPlants(fetchedPlants || []);
-      console.log(`plants: ${plants}`);
     } catch (error) {
       setErrorMessage("Could not fetch plants");
     }
