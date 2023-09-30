@@ -35,7 +35,7 @@ function Login() {
   return (
     <div className="sign-in-container">
     
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="sign-in-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div className="username-field">
         <label htmlFor="login-username">Username:</label>
@@ -43,13 +43,13 @@ function Login() {
         </div>
         <div className="password-field">
         <label htmlFor="login-password">Password:</label>
-        <input id="login-password" onChange={e => setPassword(e.target.value)} type="text" />
+        <input id="login-password" type="password" onChange={e => setPassword(e.target.value)} />
         </div>
 
         <button className="generic-button" type="submit">Sign In</button>
       </form>
 
-    <div className="register-info">
+    <div className="sign-in-info">
       <p>If you don't have an account, please register here:</p>
       <br/>
       <Link className="generic-button" to="/register">Register</Link>
@@ -57,7 +57,7 @@ function Login() {
     <div className="demo-info">
       <p>Or check out this demo to tour all the features of the app:</p>
       <br/>
-      <Link className="generic-button" class-name="demo-button" to="/demo">Demo</Link>
+      <Link className="generic-button demo-button" class-name="demo-button" to="/demo">Demo</Link>
     </div>
     </div>
   )

@@ -11,6 +11,10 @@
   font-family: 'Nunito', sans-serif;
 }
 
+h2 { 
+  margin: 0;
+}
+
 .display-container {
   width: 90%;
   height: 90%;
@@ -22,29 +26,46 @@
 }
 
 .generic-button {
+  box-sizing: border-box;
   width: 100px;
-  padding: 10px 20px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   color: white;
-  background-color: #007bff;
-  border: 1px solid #007bff;
+  background-color: #1079ea;
+  border: 1px solid #3991d0;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
+.generic-button:hover {
+  background-color: #0c54a0;
+}
+
+.demo-button {
+  background-color: green;
+  border: 1px solid rgb(15, 71, 31);
+}
+
+.demo-button:hover {
+  background-color: rgb(46, 158, 46);
+}
+
+
+
 .welcome {
   grid-area: welcome;
   padding: 8%;
+  margin-top: 5%;
 }
 
-.login-form {
-  grid-area: login-form;
+.sign-in-form {
+  grid-area: sign-in-form;
 }
 
-.register-info {
-  grid-area: register-info;
+.sign-in-info {
+  grid-area: sign-in-info;
 }
 
 .demo-info {
@@ -63,16 +84,16 @@
 .sign-in-container {
   grid-area: sign-in-container;
   display: grid;
-  grid-template-rows: 5% 45% 25% 25%;
+  grid-template-rows: 5% 35% 20% 40%;
   grid-template-areas:
   "."
-  "login-form"
-  "register-info"
+  "sign-in-form"
+  "sign-in-info"
   "demo-info";
 
 }
 
-.login-form {
+.sign-in-form {
   display: flex;
   flex-direction: column;
   align-items: center;
