@@ -7,7 +7,7 @@ Nom Nom Plants offers a fun and playful way for users to improve their health. U
 
 ## Repositories
 
-Frontend: https://github.com/MonikaChris/nom-plants
+Frontend: https://github.com/MonikaChris/nom-plants\
 Backend: https://github.com/MonikaChris/nom-plants-api
 
 ## Technologies Used
