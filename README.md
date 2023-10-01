@@ -32,6 +32,12 @@ CRUD
 
 - Users can view, create, update, and delete plants in their weekly personal or demo gardens.
 
+## React Component Architecture
+
+![Component Architecture](src/images/NomPlantsReactComponents.png)
+
+GardenDisplay receives a plants array from usePlants, which gets passed down in props. Garden calculates the number of PlantRow components needed, and each PlantRow calculates the number of Flower and Seedbed components needed.
+
 ## Photo Credits
 
 1. Landscape Background Photo:
