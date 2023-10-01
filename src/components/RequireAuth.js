@@ -1,4 +1,4 @@
-import { useLocation, Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useContext } from "react";
 import RegisterForm from "./RegisterForm";
 import AuthContext from "../context/AuthProvider";
