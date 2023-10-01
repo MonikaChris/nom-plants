@@ -35,7 +35,7 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
     setAuth({});
     navigate('/');
   }
-
+  
   return (
     <>
       <div className="week-banner">

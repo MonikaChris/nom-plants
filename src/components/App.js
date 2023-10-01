@@ -5,9 +5,9 @@ import Login from "./Login";
 import RegisterForm from "./RegisterForm";
 import RequireAuth from "./RequireAuth";
 import PersistAuth from "./PersistAuth";
-import GardenDisplay from "./GardenDisplay";
 import Demo from "./Demo";
 import PlantChart from "./PlantChart";
+import UserGarden from "./UserGarden";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
 
           <Route element={<RequireAuth />}>
             <Route element={<PersistAuth />}>
-              <Route path="/garden" element={<GardenDisplay />} />
+              <Route path="/garden" element={<UserGarden />} />
               <Route path="/chart" element={<PlantChart />} />
             </Route>
           </Route>

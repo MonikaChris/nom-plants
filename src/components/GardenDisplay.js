@@ -1,5 +1,5 @@
 import "../App.css";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { getMonday } from "../dateUtility";
 import Banner from "./Banner";
 import PlantFormModal from "./PlantFormModal";

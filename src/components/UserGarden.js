@@ -1,6 +1,6 @@
 import GardenDisplay from "./GardenDisplay";
 import { useContext } from "react";
-import AuthContext from "./context/AuthProvider";
+import AuthContext from "../context/AuthProvider";
 
 function UserGarden() {
   const { auth } = useContext(AuthContext);
@@ -8,7 +8,6 @@ function UserGarden() {
   return (
     <GardenDisplay user={auth.username} />
   )
-
 }
 
 export default UserGarden;
