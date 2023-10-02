@@ -38,6 +38,8 @@ CRUD
 
 GardenDisplay receives a plants array from usePlants, which gets passed down in props. Garden calculates the number of PlantRow components needed, and each PlantRow calculates the number of Flower and Seedbed components needed.
 
+Not pictured are modal components for adding, updating, deleting, and displaying errors.
+
 ## Photo Credits
 
 1. Landscape Background Photo:
