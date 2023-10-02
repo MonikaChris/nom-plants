@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function EditPlantForm({ week, updatePlant, setDeletePlantModal, setEditPlantModal, plantToEdit }) {
+function EditPlantForm({ updatePlant, setDeletePlantModal, setEditPlantModal, plantToEdit }) {
   const [input, setInput] = useState(plantToEdit);
   
   const handleSave = async (e) => {
@@ -26,3 +26,5 @@ export default function EditPlantForm({ week, updatePlant, setDeletePlantModal, 
     </form>
   )
 }
+
+export default EditPlantForm;

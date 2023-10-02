@@ -1,9 +1,8 @@
-export default function Flower({plant, setEditPlantModal, setPlantToEdit }) {
+function Flower({ plant, setEditPlantModal, setPlantToEdit }) {
   const handleClick = () => {
     setPlantToEdit(plant);
     setEditPlantModal(true);
   }
-  
   
   return (
     <div onClick={handleClick} className='flower-container'>
@@ -12,3 +11,5 @@ export default function Flower({plant, setEditPlantModal, setPlantToEdit }) {
     </div>
   )
 }
+
+export default Flower;

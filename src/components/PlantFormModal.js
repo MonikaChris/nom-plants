@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function PlantFormModal({ addPlant, setPlantModal }) {
+function PlantFormModal({ addPlant, setPlantModal }) {
   const [plantType, setPlantType] = useState('');
 
   const handleSubmit = async (e) => {
@@ -34,3 +34,5 @@ export default function PlantFormModal({ addPlant, setPlantModal }) {
     </div>
   )
 }
+
+export default PlantFormModal;

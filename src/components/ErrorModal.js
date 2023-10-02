@@ -1,4 +1,4 @@
-export default function ErrorModal({ errorMessage, clearErrorMessage }) {
+function ErrorModal({ errorMessage, clearErrorMessage }) {
   return (
     <div className="modal">
       <h2>{errorMessage}</h2>
@@ -6,3 +6,5 @@ export default function ErrorModal({ errorMessage, clearErrorMessage }) {
     </div>
   )
 }
+
+export default ErrorModal;

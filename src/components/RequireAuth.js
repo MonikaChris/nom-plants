@@ -3,16 +3,10 @@ import { useContext } from "react";
 import RegisterForm from "./RegisterForm";
 import AuthContext from "../context/AuthProvider";
 
-function RequireAuth () {
+function RequireAuth() {
   const { auth } = useContext(AuthContext);
 
-  return (
-    auth 
-    ? <Outlet />
-    :
-    <RegisterForm />
-    
-  )
-};
+  return auth ? <Outlet /> : <RegisterForm />;
+}
 
 export default RequireAuth;

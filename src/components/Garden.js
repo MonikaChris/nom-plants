@@ -3,7 +3,7 @@ import ProgressBar from "./ProgressBar";
 import { v4 as uuidv4 } from 'uuid';
 import { Fragment } from "react";
 
-export default function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit}) {
+function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit}) {
   
   function getPlantRows() {
     let gardenArray = plants;
@@ -47,3 +47,5 @@ export default function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH,
     )
   );
 }
+
+export default Garden;

@@ -18,7 +18,7 @@ function PersistAuth() {
         await refresh();
       } catch (error) {
         console.error(error);
-        navigate('/');
+        navigate("/");
         setIsLoading(false);
       } finally {
         isMounted && setIsLoading(false);
@@ -27,7 +27,7 @@ function PersistAuth() {
     //Call refreshAccessToken only if no access token in auth state
     !auth?.accessToken ? refreshAccessToken() : setIsLoading(false);
 
-    return () => isMounted = false;
+    return () => (isMounted = false);
   }, []);
 
   return isLoading ? <p>Loading...</p> : <Outlet />;
