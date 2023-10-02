@@ -113,6 +113,18 @@ h2 {
   flex-direction: column;
 }
 
+.register-message {
+  margin-top: -.5rem;
+}
+
+.success-message {
+  color: green;
+}
+
+.failure-message {
+  color: red;
+}
+
 .garden-display {
   width: 100%;
   height: 100%;

@@ -5,14 +5,20 @@ import authAPI from "../api/authAPI";
 function RegisterForm() {
   const [username, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
   const api = new authAPI();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await api.register(username, password);
+      setMessage("Success! Please log in.");
+      setMessageType("success");
     } catch (error) {
       console.error(error);
+      setMessage("Username taken.");
+      setMessageType("failure");
     }
     //Reset form
     setUser("");
@@ -22,30 +28,41 @@ function RegisterForm() {
   return (
     <div className="sign-in-container">
       <form className="sign-in-form" onSubmit={handleSubmit}>
-        
         <h2>Register</h2>
-        
+
         <div className="username-field">
           <label htmlFor="reg-username">Username:</label>
           <input
             id="reg-username"
             onChange={(e) => setUser(e.target.value)}
             type="text"
+            value={username}
           />
         </div>
-        
+
         <div className="password-field">
           <label htmlFor="reg-password">Password:</label>
           <input
             id="reg-password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
 
         <button className="generic-button" type="submit">
           Register
         </button>
+
+        {message && (
+          <p
+            className={`register-message ${
+              messageType === "success" ? "success-message" : "failure-message"
+            }`}
+          >
+            {message}
+          </p>
+        )}
       </form>
 
       <div className="sign-in-info">

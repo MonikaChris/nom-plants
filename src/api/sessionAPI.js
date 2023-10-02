@@ -17,6 +17,7 @@ class SessionAPI {
       response.data.forEach((week) => {
         sessionStorage.setItem(JSON.stringify(week.date), JSON.stringify(week.plants));
       })
+      return JSON.parse(sessionStorage.getItem(JSON.stringify(week)));
     } catch (error) {
       console.error(error);
       return error;
