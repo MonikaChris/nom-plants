@@ -40,7 +40,7 @@ GardenDisplay receives a plants array from usePlants, which gets passed down in 
 
 Not pictured are modal components for adding, updating, deleting, and displaying errors.
 
-## Pictures of Live Site
+## Live Site Images
 
 ![Welcome Page](src/images/WelcomeScreen.png)
 
