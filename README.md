@@ -32,6 +32,10 @@ CRUD
 
 - Users can view, create, update, and delete plants in their weekly personal or demo gardens.
 
+Progress Tracking
+
+- Click the back and forward leaf buttons at the top of the garden page to view data from previous weeks.
+
 ## React Component Architecture
 
 ![Component Architecture](src/images/NomPlantsReactComponents.png)
