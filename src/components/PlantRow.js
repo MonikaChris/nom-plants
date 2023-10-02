@@ -9,7 +9,6 @@ function PlantRow({ row,GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) 
       row.push(0);
     }
   }
-
   // Split row into flowers and seedbeds
   let firstSeedIndex = row.findIndex((elem) => elem === 0);
   firstSeedIndex = firstSeedIndex === -1 ? GARDEN_ROW_LENGTH : firstSeedIndex;

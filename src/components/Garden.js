@@ -3,9 +3,10 @@ import ProgressBar from "./ProgressBar";
 import { v4 as uuidv4 } from 'uuid';
 import { Fragment } from "react";
 
-function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit}) {
+function Garden({ plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) {
   
   function getPlantRows() {
+  // Fills up plants array with 0's, representing seedbeds, up to GARDEN_STARTING_SIZE
     let gardenArray = plants;
     if (!plants || plants.length < GARDEN_STARTING_SIZE) {
       gardenArray = new Array(GARDEN_STARTING_SIZE);
@@ -17,7 +18,7 @@ function Garden({plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantMo
         }
       }
     }
-
+    // Converts plants array to array of arrays, each length GARDEN_ROW_LENGTH
     return groupRows(gardenArray);
   }
 
