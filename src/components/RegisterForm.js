@@ -50,7 +50,7 @@ function RegisterForm() {
           />
         </div>
 
-        <button className="generic-button" type="submit">
+        <button className="generic-button sign-in-form-button" type="submit">
           Register
         </button>
 

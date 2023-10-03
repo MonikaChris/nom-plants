@@ -1,3 +1,7 @@
+:root {
+  font-size: 150%;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -27,7 +31,8 @@ h2 {
 
 .generic-button {
   box-sizing: border-box;
-  width: 100px;
+  display: inline-block;
+  width: 7rem;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -41,6 +46,11 @@ h2 {
 
 .generic-button:hover {
   background-color: #0c54a0;
+}
+
+.sign-in-form-button {
+  height: 2rem;
+  font-size: .8rem;
 }
 
 .demo-button {
@@ -111,6 +121,10 @@ h2 {
   margin-right: auto;
   display: flex;
   flex-direction: column;
+}
+
+.username-field input, .password-field input {
+  height: 1.2rem;
 }
 
 .register-message {
@@ -245,7 +259,9 @@ h2 {
 
 .logout-button {
   margin-left: 1rem;
-  vertical-align: super;
+  vertical-align: 40%;
+  height: 2.2rem;
+  font-size: .9rem;
 }
 
 .back-button {

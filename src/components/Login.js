@@ -53,7 +53,7 @@ function Login() {
           />
         </div>
 
-        <button className="generic-button" type="submit">
+        <button className="generic-button sign-in-form-button" type="submit">
           Sign In
         </button>
       </form>
