@@ -2,6 +2,10 @@
 Author: Monika Davies\
 Version: 1.0.0
 
+Live Site: [https://nom-nom-plants.netlify.app](https://nom-nom-plants.netlify.app)
+
+Note: Backend deployed to Render's free tier, which often has slow initial load times. Scroll down for images of live site.
+
 ## Overview
 Nom Nom Plants offers a fun and playful way for users to improve their health. Users grow virtual gardens representing how many different plants they eat each week and track their progress.
 
