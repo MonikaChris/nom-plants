@@ -14,7 +14,7 @@ function EditPlantForm({ updatePlant, setDeletePlantModal, setEditPlantModal, pl
       <h1>Update or Delete Plant?</h1>
       
       <div>
-        <label id="edit-plant">Plant:</label>
+        <label htmlFor="edit-plant">Plant:</label>
         <input onChange={(e) => setInput(e.target.value)} id="edit-plant" type="text" value={input}></input>
       </div>
       

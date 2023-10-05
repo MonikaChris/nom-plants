@@ -325,6 +325,7 @@ h2 {
   margin: 1.5rem;
   width: 6rem;
   height: 2.5rem;
+  font-size: .8rem;
 }
 
 .flower-container {
@@ -363,6 +364,10 @@ h2 {
   width: 100%;
 }
 
+.edit-plant {
+  margin-left: 1rem;
+}
+
 .update-plant-form {
   display: flex;
   flex-direction: column;
@@ -382,6 +387,7 @@ h2 {
   height: 2rem;
   width: 4rem;
   border-radius: 3px;
+  font-size: .8rem;
 }
 
 .save-button {
