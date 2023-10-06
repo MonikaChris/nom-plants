@@ -290,7 +290,11 @@ h2 {
   width: 100%;
 }
 
-.plant-form-modal {
+.add-plant-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 40%;
   height: 40%;
   background-color: rgb(160, 243, 198);
@@ -301,20 +305,9 @@ h2 {
   color: rgb(8, 85, 8);
 }
 
-.plant-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 70%;
-}
-
-#add-plant-text {
-  margin-top: 2rem;
-}
-
 #plant-type {
   margin-left: .5rem;
+  font-size: 1rem;
 }
 
 .plant-form-button {
@@ -364,8 +357,9 @@ h2 {
   width: 100%;
 }
 
-.edit-plant {
-  margin-left: 1rem;
+#edit-plant {
+  margin-left: .5rem;
+  font-size: 1rem;
 }
 
 .update-plant-form {
