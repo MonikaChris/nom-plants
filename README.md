@@ -54,7 +54,7 @@ Not pictured are modal components for adding, updating, deleting, and displaying
 
 ![Garden Page](src/images/GardenScreen1.png)
 
-![Garden Page](src/images/GardenScreen2.png)
+![Garden Page](src/images/GardenScreen5.png)
 
 ![Garden Page](src/images/GardenScreen3.png)
 
