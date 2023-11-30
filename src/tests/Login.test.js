@@ -1,30 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Login from '../components/Login.js';
 import { BrowserRouter } from 'react-router-dom';
 
-describe('renders login', () => {
-  /* eslint-disable testing-library/no-render-in-setup */
-  beforeEach(() => {
-    render(
-      <BrowserRouter>
-        <Login />
-      </BrowserRouter>
-    );
-  });
+const Wrapper = ({ children }) => <BrowserRouter>{children}</BrowserRouter>
 
-  test('username text box', () => {
-    const usernameElement = screen.getByRole('textbox', {name: "Username:"});
-    expect(usernameElement).toBeInTheDocument();
-  });
-
-  test('password text box', () => {
-    const passwordElement = screen.getByLabelText(/password:/i);
-    expect(passwordElement).toBeInTheDocument();
+describe('Login Component', () => {
+  test('renders form elements', () => {
+    render(<Login />, { wrapper: Wrapper });
+    expect(screen.getByLabelText(/username/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /sign in/i})).toBeInTheDocument();
   })
+})
 
-  test('sign-in button', () => {
-    const loginButton = screen.getByRole('button', {name: 'Sign In'})
-    expect(loginButton).toBeInTheDocument();
-  })
 
-});
