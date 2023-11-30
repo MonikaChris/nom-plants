@@ -1,14 +1,25 @@
+import axios from "axios";
 import PlantsAPI from "../api/plantsAPI";
 
-test('fetches week data', async () => {
-  const plantsAPI = new PlantsAPI("dummyToken");
-  const data = await plantsAPI.getPlants("9-25-2023");
-  const expectedData = [
-    {
+// Mock axios
+jest.mock("axios");
+
+test("fetches week data", async () => {
+  const dummyResponse = {
+    data: {
       date: "9-25-2023",
       plants: ["Spinach", "Broccoli", "Tomatoes"],
-      username: "user"
-    }
-  ];
+      username: "user",
+    },
+  };
+
+  // Mock Axios to return dummy response
+  axios.mockResolvedValue(dummyResponse);
+
+  const plantsAPI = new PlantsAPI("dummyToken");
+  const data = await plantsAPI.getPlants("9-25-2023");
+
+  const expectedData = ["Spinach", "Broccoli", "Tomatoes"];
+
   expect(data).toEqual(expectedData);
 });
