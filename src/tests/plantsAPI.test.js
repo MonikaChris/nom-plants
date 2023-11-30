@@ -4,7 +4,7 @@ import PlantsAPI from "../api/plantsAPI";
 // Mock axios
 jest.mock("axios");
 
-test("fetches week data", async () => {
+test("fetches week's plant data", async () => {
   const dummyResponse = {
     data: {
       date: "9-25-2023",
