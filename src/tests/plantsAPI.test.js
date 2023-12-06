@@ -18,8 +18,6 @@ test("fetches week's plant data", async () => {
 
   const plantsAPI = new PlantsAPI("dummyToken");
   const data = await plantsAPI.getPlants("9-25-2023");
-
-  const expectedData = ["Spinach", "Broccoli", "Tomatoes"];
-
-  expect(data).toEqual(expectedData);
+  
+  expect(data).toEqual(["Spinach", "Broccoli", "Tomatoes"]);
 });
