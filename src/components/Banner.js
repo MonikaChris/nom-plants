@@ -3,6 +3,7 @@ import AuthAPI from "../api/authAPI";
 import AuthContext from "../context/AuthProvider";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { DEMO_EMAIL } from "../constants";
 
 export default function Banner({ user, week, setWeek, total, setPlantModal }) {
   const { setAuth } = useContext(AuthContext);
@@ -15,8 +16,6 @@ export default function Banner({ user, week, setWeek, total, setPlantModal }) {
   const date = `${month} ${dateParts[1]}, ${dateParts[2]}`;
 
   const api = new AuthAPI();
-
-  const DEMO_EMAIL = "lovebug@veggies.com";
 
   const goBackOneWeek = () => {
     setWeek(getPreviousWeek(week));
