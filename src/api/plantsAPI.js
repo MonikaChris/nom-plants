@@ -13,10 +13,12 @@ class PlantsAPI {
       const config = {
         method: "get",
         baseURL: this.baseURL,
-        url: `${this.baseURL}/api/weeks/${week}`,
+        url: `/api/weeks/${week}`,
         headers: this.headers,
       }
       const res = await axios(config);
+      console.log('res:', res);
+      console.log('res.data', res.data);
       return res.data.plants || [];
     } catch (error) {
       console.error(error);
