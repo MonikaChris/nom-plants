@@ -2,8 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import PlantsAPI from "../api/plantsAPI";
 import SessionAPI from "../api/sessionAPI";
 import AuthContext from "../context/AuthProvider";
-
-const DEMO_EMAIL = "lovebug@veggies.com";
+import { DEMO_EMAIL } from "../constants";
 
 export function usePlants(user, week) {
   const [plants, setPlants] = useState([]);

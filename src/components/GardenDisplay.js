@@ -7,11 +7,8 @@ import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
 import { usePlants }  from "../hooks/usePlants";
+import { GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH } from "../constants";
 
-// Starting Garden Size (target plant consumption)
-// Number of plants per row
-const GARDEN_STARTING_SIZE = 30;
-const GARDEN_ROW_LENGTH = 10;
 
 function GardenDisplay({ user }) {
   const [week, setWeek] = useState(getMonday(new Date()));

@@ -1,8 +1,7 @@
 import GardenDisplay from "./GardenDisplay";
+import { DEMO_EMAIL } from "../constants";
 
 function Demo() {
-  const DEMO_EMAIL = "lovebug@veggies.com";
-
   return <GardenDisplay user={DEMO_EMAIL} />;
 }
 
