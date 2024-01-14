@@ -1,4 +1,6 @@
-export default function ProgressBar({row, GARDEN_ROW_LENGTH}) {
+import { GARDEN_ROW_LENGTH } from "../constants";
+
+export default function ProgressBar({ row }) {
   //Calculate percent of progress bar filled
   const seedIndex = row.findIndex(elem => elem === 0);
   const numerator = seedIndex === -1 ? GARDEN_ROW_LENGTH : seedIndex;

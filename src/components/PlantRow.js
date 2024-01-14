@@ -1,8 +1,9 @@
 import Flower from "./Flower";
 import Seedbed from "./Seedbed";
 import { v4 as uuidv4 } from "uuid";
+import { GARDEN_ROW_LENGTH } from "../constants";
 
-function PlantRow({ row,GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) {
+function PlantRow({ row, setEditPlantModal, setPlantToEdit }) {
   // Split row into flowers and seedbeds
   let firstSeedIndex = row.findIndex((elem) => elem === 0);
   firstSeedIndex = firstSeedIndex === -1 ? GARDEN_ROW_LENGTH : firstSeedIndex;

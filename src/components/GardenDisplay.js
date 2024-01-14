@@ -7,7 +7,6 @@ import EditPlantModal from "./EditPlantModal";
 import Garden from "./Garden";
 import ErrorModal from "./ErrorModal";
 import { usePlants }  from "../hooks/usePlants";
-import { GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH } from "../constants";
 
 
 function GardenDisplay({ user }) {
@@ -52,8 +51,6 @@ function GardenDisplay({ user }) {
       ) : (
           <Garden
             plants={plants} 
-            GARDEN_STARTING_SIZE={GARDEN_STARTING_SIZE} 
-            GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH}
             setEditPlantModal={setEditPlantModal}
             setPlantToEdit={setPlantToEdit}
           />

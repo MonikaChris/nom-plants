@@ -2,8 +2,9 @@ import PlantRow from "./PlantRow";
 import ProgressBar from "./ProgressBar";
 import { v4 as uuidv4 } from 'uuid';
 import { Fragment } from "react";
+import { GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH } from "../constants";
 
-function Garden({ plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) {
+function Garden({ plants, setEditPlantModal, setPlantToEdit }) {
   
   function getPlantRows() {
     //Shapes garden array and fills in 0's to represent seedbeds
@@ -31,14 +32,12 @@ function Garden({ plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantM
       <Fragment key={uuidv4()}>
         <PlantRow
           row={row}
-          GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH}
           setEditPlantModal={setEditPlantModal}
           setPlantToEdit={setPlantToEdit}
         />
 
         <ProgressBar
           row={row}
-          GARDEN_ROW_LENGTH={GARDEN_ROW_LENGTH} 
         />
       </Fragment>
     )
