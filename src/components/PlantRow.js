@@ -3,12 +3,6 @@ import Seedbed from "./Seedbed";
 import { v4 as uuidv4 } from "uuid";
 
 function PlantRow({ row,GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) {
-  // Fill in any partial row
-  if (row.length < GARDEN_ROW_LENGTH) {
-    for (let i = row.length; i < GARDEN_ROW_LENGTH; i++) {
-      row.push(0);
-    }
-  }
   // Split row into flowers and seedbeds
   let firstSeedIndex = row.findIndex((elem) => elem === 0);
   firstSeedIndex = firstSeedIndex === -1 ? GARDEN_ROW_LENGTH : firstSeedIndex;

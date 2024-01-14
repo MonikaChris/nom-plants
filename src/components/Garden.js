@@ -6,19 +6,13 @@ import { Fragment } from "react";
 function Garden({ plants, GARDEN_STARTING_SIZE, GARDEN_ROW_LENGTH, setEditPlantModal, setPlantToEdit }) {
   
   function getPlantRows() {
-  // Fills up plants array with 0's, representing seedbeds, up to GARDEN_STARTING_SIZE
-    let gardenArray = plants;
-    if (!plants || plants.length < GARDEN_STARTING_SIZE) {
-      gardenArray = new Array(GARDEN_STARTING_SIZE);
-      gardenArray.fill(0);
-      
-      if(plants) {
-        for(let i = 0; i < plants.length; i++) {
-          gardenArray[i] = plants[i];
-        }
-      }
+    //Shapes garden array and fills in 0's to represent seedbeds
+    let gardenArray = new Array(GARDEN_STARTING_SIZE).fill(0);
+    plants.forEach((plant, idx) => gardenArray[idx] = plant);
+    if (plants.length > GARDEN_STARTING_SIZE) {
+      const num_zeros = GARDEN_ROW_LENGTH - ((plants.length - GARDEN_STARTING_SIZE) % GARDEN_ROW_LENGTH);
+      gardenArray = gardenArray.concat(new Array(num_zeros).fill(0));
     }
-    // Converts plants array to array of arrays, each length GARDEN_ROW_LENGTH
     return groupRows(gardenArray);
   }
 
